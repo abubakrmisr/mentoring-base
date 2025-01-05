@@ -93,3 +93,173 @@ button {
     color: white;
     align-items: center;
 }
+
+.content-conteiner {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.item-cards_pagination {
+    display: flex;
+    justify-content: end;
+
+    &-button {
+    font-family: inter;
+    border: none;
+    background: none;
+    color: #A1A0A0;
+    }
+}
+
+.active-button {
+    color: #F0BA4E;
+    font-weight: 600;
+}
+
+.item-cards_grid {
+    display: flex;
+}
+
+.item-cards_grid-left {
+    max-height: 428px;
+    max-width: 421px;
+    height: 428px;
+    // width: 421px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-shadow: 0px 20px 50px 0px #3c3c3b12;
+    background-image: url(/assets/image19.png);
+    background-position-x: left;
+    background-position-y: bottom;
+    margin-bottom: 500px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item-cards_grid-text {
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.item-cards_grid-left-action {
+    align-self: end;
+    display: flex;
+    align-items: center;
+}
+
+.item-cards_grid-left-action-link {
+    width: 40px;
+    height: 40px;
+}
+
+.item-cards_grid-right {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-left: 20px;
+}
+
+.item-cards_grid-right-block {
+    width: 421px;
+    height: 200px;
+    box-shadow: 0px 20px 50px 0px #3c3c3b12;
+}
+
+.item-cards_grid-right-block-one {
+    width: 421px;
+    height: 200px;
+    background-image: url(/assets/emali14.png);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-shadow: 0px 20px 50px 0px #3c3c3b12;
+    background-position-x: left;
+    background-position-y: bottom;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.text-right-block-one {
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 600;
+    align-self: flex-end;
+}
+
+.item-cards_grid-right-action {
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+}
+
+.item-cards_grid-right-block-two {
+    width: 421px;
+    height: 200px;
+    background-image: url(/assets/vedro.png);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-shadow: 0px 20px 50px 0px #3c3c3b12;
+    background-position-x: right;
+    background-position-y: bottom;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    box-sizing: border-box;
+
+}
+
+.text-right-block-two {
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 600;
+    width: 281px; 
+}
+
+.item-cards_grid-right-action-two {
+    display: flex;
+    align-items: center;
+}
+
+.item-cards_grid-right-block-three {
+    width: 421px;
+    height: 200px;
+    background-image: url(/assets/pena.png);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-shadow: 0px 20px 50px 0px #3c3c3b12;
+    background-position-x: right;
+    background-position-y: bottom;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.item-cards_grid-right-block-four {
+    // max-height: 428px;
+    // max-width: 421px;
+    height: 200px;
+    width: 421px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    box-shadow: 0px 20px 50px 0px #3c3c3b12;
+    background-image: url(/assets/rozetka.png);
+    background-position-x: left;
+    background-position-y: bottom;
+    // margin-bottom: 500px;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
