@@ -1,3 +1,7 @@
+.page {
+    overflow: hidden;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -29,10 +33,9 @@
     display: flex;
     align-items: center;
     margin-right: 20px;
-
 }
 
-.header-buton {
+.header-button {
     display: flex;
     background-color: #4B565E;
     border-radius: 20px;
@@ -500,4 +503,145 @@ button {
     cursor: pointer;
     border-radius: 54px;
     gap: 10px;
+}
+
+.catalog {
+    width: 100%;
+    height: 251px;
+    background-image: url(/assets/pngwing.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
+    margin-top: 56px;
+    margin-bottom: 56px;
+}
+
+.catalog-text {
+    font-family: Inter;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 33.89px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin: 28px 0px 16px 28px ;
+}
+
+.catalog-text2 {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24.2px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin: 0px 0px 149px 28px ;
+    color: #A1A0A0;
+}
+
+.catalog-text3 {
+    margin: 0px 0px 28px 28px ;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 21.78px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #F0BA4E;
+}
+
+.footer {
+    width: 100%;
+    height: 373px;
+    background-color: #4B565E;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-conteiner {
+    width: 1412px;
+    height: 100%;
+    margin: 34px 300px 0px 200px;
+    // display: flex;
+}
+
+.footer-left {
+    width: 960px;
+}
+
+.footer-stage-one {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contacts {
+    display: flex;
+}
+
+.footer-contactinfo {
+    margin-top: 32px;
+        // justify-content: space-between;
+
+}
+
+.footer-email-info {
+    margin-left: 56px;
+    margin-top: 32px;
+
+}
+
+.footer-contact-info_string_one {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 171px;
+}
+
+.contact-text {
+    margin-left: 12;
+    // padding-left: 48;
+    font-family: Inter;
+font-size: 12px;
+font-weight: 400;
+line-height: 14.52px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+color: rgba(255, 255, 255, 0.6);
+
+}
+
+.footer-contactinfo_string_two {
+    margin-left: 36px;
+    font-family: Inter;
+font-size: 16px;
+font-weight: 500;
+line-height: 19.36px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+color:#FFF;
+}
+
+.number-phone {
+margin-top: 5px;
+}
+
+.email-info {
+    margin-left: 56px;
+}
+
+.email-top {
+    margin-top: 5px;
+}
+
+.footer-right {
+    width: 960px;
+    max-width: 960px;
+}
+
+.footer-right-block{
+    margin-top: 34px;
 }
