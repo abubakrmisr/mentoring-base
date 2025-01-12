@@ -558,17 +558,19 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 0px;
 }
 
 .footer-conteiner {
     width: 1412px;
     height: 100%;
     margin: 34px 300px 0px 200px;
-    // display: flex;
+    padding-bottom: 0px;
 }
 
 .footer-left {
     width: 960px;
+    margin-top: 34px;
 }
 
 .footer-stage-one {
@@ -599,8 +601,12 @@ button {
     width: 171px;
 }
 
+.contact-email-img {
+    margin-right: -10px;
+}
+
 .contact-text {
-    margin-left: 12;
+    margin-left: none;
     // padding-left: 48;
     font-family: Inter;
 font-size: 12px;
@@ -620,9 +626,23 @@ font-size: 16px;
 font-weight: 500;
 line-height: 19.36px;
 text-align: left;
-text-underline-position: from-font;
+// text-underline-position: from-font;
 text-decoration-skip-ink: none;
 color:#FFF;
+text-decoration: none;
+}
+
+.footer-contactinfo_string_two a{
+    margin-left: 0px;
+    font-family: Inter;
+font-size: 16px;
+font-weight: 500;
+line-height: 19.36px;
+text-align: left;
+// text-underline-position: from-font;
+text-decoration-skip-ink: none;
+color:#FFF;
+text-decoration: none;
 }
 
 .number-phone {
@@ -640,8 +660,160 @@ margin-top: 5px;
 .footer-right {
     width: 960px;
     max-width: 960px;
+    
 }
 
 .footer-right-block{
     margin-top: 34px;
+    width: 534px;
+    margin-left: 60px;
+}
+
+.footer-right-block-info-text-one {
+    font-family: Inter;
+font-size: 18px;
+font-weight: 700;
+line-height: 21.78px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+color: #FFFFFF;
+margin-bottom: 12px;
+}
+
+.footer-right-block-info-text-two {
+    font-family: Inter;
+font-size: 14px;
+font-weight: 400;
+line-height: 24px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+color: rgba(255, 255, 255, 0.6);
+}
+
+.foter-right-blok-form {
+    display: flex;
+    margin-top: 32px;
+    border: 2px solid #F0BA4E;
+    border-radius: 54px;
+    height: 48px;
+    
+}
+
+.footer-right-block-form-info {
+    display: flex;
+    align-items: center;
+}
+
+.footer-right-block-form-img {
+    margin-left: 26px;
+}
+
+.footer-right-block-form-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 534px;
+}
+
+.footer-right-block-form-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: Inter;
+font-size: 12px;
+font-weight: 400;
+line-height: 14.52px;
+text-align: center;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+margin-left: 8px;
+}
+
+.footer-right-block-form-button {
+    font-family: Inter;
+font-size: 10px;
+font-weight: 700;
+line-height: 12.1px;
+text-align: center;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+color: #FFFFFF;
+border: 2px solid #F0BA4E;
+border-radius: 54px;
+background-color: #F0BA4E;
+padding: 12px 19.5px;
+margin-right: 6px;
+}
+
+.footer-stage-two {
+    margin-top: 45px;
+    margin-bottom: 32px;
+    width: 1290px;
+}
+
+.footer-navigation {
+    display: flex;
+}
+
+.footer-copyright-info {
+    text-align: end;
+    width: 1208px;
+}
+
+.footer-undergound {
+    display: flex;
+    align-items: center;
+    margin-top: 36px;
+}
+
+.footer-main {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #FFFFFF;
+
+}
+
+.footer-about {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin-left: 28px;
+    color: #FFFFFF;
+
+}
+
+.footer-catalog {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin-left: 28px;
+    color: #FFFFFF;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+}
+
+
+.footer-social img:not(:first-child) {
+    margin-left: 20px;
+}
+
+.footer-copyright-info {
+    color: rgba(255, 255, 255, 0.6);
+
 }
