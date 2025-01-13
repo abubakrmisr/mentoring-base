@@ -329,7 +329,7 @@ button {
 .products-header {
     display: flex;
     justify-content: space-between;
-    margin: 6px 46px;
+    margin: 6px 21px;
 }
 
 .item-popular {
@@ -375,8 +375,36 @@ button {
 
 .top-disk {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-disc-versus-two {
+    // align-items: center;
+    margin-top: 12px;
+}
+
+
+
+.top-disc-versus-one {
+    display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.content-position-new {
+    border-radius: 25px;
+    border: 2px solid #08C785;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19.36px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    background: #08C785;
+    padding: 10px 20px;
+    color: #FFFFFF;
 }
 
 .product-name {
