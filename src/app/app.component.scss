@@ -38,12 +38,18 @@
 .header-button {
     display: flex;
     background-color: #4B565E;
-    border-radius: 20px;
+    border-radius: 25px;
     border-color: #F0BA4E;
     border-width: 2px;
     align-items: center;
     color: white;
     padding: 3;
+    padding-left: 14.5px;
+}
+
+.button-content {
+    display: flex;
+    padding: 14.5px;
 }
 
 .header2 {
@@ -58,8 +64,31 @@
 
 .header-left-item {
     margin-right: 20px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16.94px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
 }
 
+.search-button {
+    // border: none;
+    box-shadow: none;
+}
+
+.search-input {
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+}
 
 .header2-logo {
     margin-right: 5px;
@@ -69,7 +98,6 @@ form {
     display: flex;
     margin: 20px;
     align-items: center;
-
 }
 
 input[type="text"] {
@@ -324,6 +352,17 @@ button {
 .item-products {
     width: 1320px;
     height: 463px;
+    position: relative;
+}
+
+.scroll_buttons {
+    position: absolute;
+    z-index: 1000;
+    width: 1470px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 158px;
+    margin-left: -59px;
 }
 
 .products-header {
@@ -380,11 +419,8 @@ button {
 }
 
 .top-disc-versus-two {
-    // align-items: center;
     margin-top: 12px;
 }
-
-
 
 .top-disc-versus-one {
     display: flex;
@@ -552,7 +588,7 @@ button {
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    margin: 28px 0px 16px 28px ;
+    margin: 28px 0px 16px 28px;
 }
 
 .catalog-text2 {
@@ -563,12 +599,12 @@ button {
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    margin: 0px 0px 149px 28px ;
+    margin: 0px 0px 149px 28px;
     color: #A1A0A0;
 }
 
 .catalog-text3 {
-    margin: 0px 0px 28px 28px ;
+    margin: 0px 0px 28px 28px;
     font-family: Inter;
     font-size: 18px;
     font-weight: 600;
@@ -612,14 +648,11 @@ button {
 
 .footer-contactinfo {
     margin-top: 32px;
-        // justify-content: space-between;
-
 }
 
 .footer-email-info {
     margin-left: 56px;
     margin-top: 32px;
-
 }
 
 .footer-contact-info_string_one {
@@ -635,46 +668,42 @@ button {
 
 .contact-text {
     margin-left: none;
-    // padding-left: 48;
     font-family: Inter;
-font-size: 12px;
-font-weight: 400;
-line-height: 14.52px;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-color: rgba(255, 255, 255, 0.6);
-
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.52px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-contactinfo_string_two {
     margin-left: 36px;
     font-family: Inter;
-font-size: 16px;
-font-weight: 500;
-line-height: 19.36px;
-text-align: left;
-// text-underline-position: from-font;
-text-decoration-skip-ink: none;
-color:#FFF;
-text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.36px;
+    text-align: left;
+    text-decoration-skip-ink: none;
+    color: #FFF;
+    text-decoration: none;
 }
 
-.footer-contactinfo_string_two a{
+.footer-contactinfo_string_two a {
     margin-left: 0px;
     font-family: Inter;
-font-size: 16px;
-font-weight: 500;
-line-height: 19.36px;
-text-align: left;
-// text-underline-position: from-font;
-text-decoration-skip-ink: none;
-color:#FFF;
-text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.36px;
+    text-align: left;
+    text-decoration-skip-ink: none;
+    color: #FFF;
+    text-decoration: none;
 }
 
 .number-phone {
-margin-top: 5px;
+    margin-top: 5px;
 }
 
 .email-info {
@@ -688,10 +717,9 @@ margin-top: 5px;
 .footer-right {
     width: 960px;
     max-width: 960px;
-    
 }
 
-.footer-right-block{
+.footer-right-block {
     margin-top: 34px;
     width: 534px;
     margin-left: 60px;
@@ -699,25 +727,25 @@ margin-top: 5px;
 
 .footer-right-block-info-text-one {
     font-family: Inter;
-font-size: 18px;
-font-weight: 700;
-line-height: 21.78px;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-color: #FFFFFF;
-margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.78px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #FFFFFF;
+    margin-bottom: 12px;
 }
 
 .footer-right-block-info-text-two {
     font-family: Inter;
-font-size: 14px;
-font-weight: 400;
-line-height: 24px;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .foter-right-blok-form {
@@ -726,7 +754,6 @@ color: rgba(255, 255, 255, 0.6);
     border: 2px solid #F0BA4E;
     border-radius: 54px;
     height: 48px;
-    
 }
 
 .footer-right-block-form-info {
@@ -748,29 +775,29 @@ color: rgba(255, 255, 255, 0.6);
 .footer-right-block-form-text {
     color: rgba(255, 255, 255, 0.6);
     font-family: Inter;
-font-size: 12px;
-font-weight: 400;
-line-height: 14.52px;
-text-align: center;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-margin-left: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.52px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    margin-left: 8px;
 }
 
 .footer-right-block-form-button {
     font-family: Inter;
-font-size: 10px;
-font-weight: 700;
-line-height: 12.1px;
-text-align: center;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-color: #FFFFFF;
-border: 2px solid #F0BA4E;
-border-radius: 54px;
-background-color: #F0BA4E;
-padding: 12px 19.5px;
-margin-right: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 12.1px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #FFFFFF;
+    border: 2px solid #F0BA4E;
+    border-radius: 54px;
+    background-color: #F0BA4E;
+    padding: 12px 19.5px;
+    margin-right: 6px;
 }
 
 .footer-stage-two {
@@ -803,7 +830,6 @@ margin-right: 6px;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
     color: #FFFFFF;
-
 }
 
 .footer-about {
@@ -816,7 +842,6 @@ margin-right: 6px;
     text-decoration-skip-ink: none;
     margin-left: 28px;
     color: #FFFFFF;
-
 }
 
 .footer-catalog {
@@ -843,5 +868,4 @@ margin-right: 6px;
 
 .footer-copyright-info {
     color: rgba(255, 255, 255, 0.6);
-
 }

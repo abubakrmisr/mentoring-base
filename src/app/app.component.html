@@ -3,12 +3,12 @@
     <div class="header">
       <div class="header-left">
         <div class="header-logo">
-          <img src="/assets/frame.svg" alt="логотип сайта">
+          <img src="/assets/egecompany.png" alt="логотип сайта">
         </div>
         <nav class="header-nav">
-          <div class="header-nav-item">Главная</div>
-          <div class="header-nav-item">О компании</div>
-          <div class="header-nav-item">Каталог</div>
+          <div class="header-nav-item">{{headerItem1}}</div>
+          <div class="header-nav-item">{{headerItem2}}</div>
+          <div class="header-nav-item">{{headerItem3}}</div>
         </nav>
       </div>
       <div class="header-right">
@@ -19,11 +19,11 @@
         <div class="header-logo">
           <img src="/assets/heart 1.png" alt="логотип сердечко">
         </div>
-        <button class="header-button">
+        <button type="button" class="header-button">
           <div>
-            <img src="/assets/Mask group.png" alt="логотип тележка">
+            <img src="/assets/shoppingcart.png" alt="логотип тележка">
           </div>
-          <div class="header-nav">Пусто</div>
+          <div class="button-content">Пусто</div>
         </button>
       </div>
     </div>
@@ -33,14 +33,14 @@
           <img src="/assets/light.png" alt="лого полоски">
         </div>
         <div class="header-left">
-          <div class="header-left-item">Каталог</div>
-          <div class="header-left-item">Стройматериалы</div>
-          <div class="header-left-item">Инструметы</div>
-          <div class="header-left-item">Электрика</div>
-          <div class="header-left-item">Интерьер и одежда</div>
+          <div class="header-left-item">{{header2Item1}}</div>
+          <div class="header-left-item">{{header2Item2}}</div>
+          <div class="header-left-item">{{header2Item3}}</div>
+          <div class="header-left-item">{{header2Item4}}</div>
+          <div class="header-left-item">{{header2Item5}}</div>
           <form action="/search" method="get">
-            <input type="text" name="query" placeholder="Поиск, например Круг зачистной">
-            <button type="submit">
+            <input class="search-input" type="text" name="query" placeholder="Поиск, например Круг зачистной">
+            <button type="button" class="search-button">
               <img src="/assets/search.png" alt="логотип лупа">
             </button>
           </form>
@@ -83,11 +83,11 @@
     </div>
     <div class="item-cards">
       <div class="item-cards_pagination">
-        <button class="item-cards_pagination-button active-button">1</button>
-        <button class="item-cards_pagination-button">2</button>
-        <button class="item-cards_pagination-button">3</button>
-        <button class="item-cards_pagination-button">4</button>
-        <button class="item-cards_pagination-button">5</button>
+        <button type="button" class="item-cards_pagination-button active-button">1</button>
+        <button type="button" class="item-cards_pagination-button">2</button>
+        <button type="button" class="item-cards_pagination-button">3</button>
+        <button type="button" class="item-cards_pagination-button">4</button>
+        <button type="button" class="item-cards_pagination-button">5</button>
       </div>
       <div class="item-cards_grid">
         <div class="item-cards_grid-left">
@@ -149,7 +149,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -285,6 +284,14 @@
       <div class="catalog-text3">Перейти в каталог</div>
     </div>
     <div class="item-products">
+      <div class="scroll_buttons">
+        <div>
+          <img src="/assets/scrollbutton.png" alt="scrollbutton logo">
+        </div>
+        <div>
+          <img src="/assets/scrollbuton2.png" alt="scrollbutton logo">
+        </div>
+      </div>
       <div class="products-header">
         <div class="item-popular">Новинки</div>
         <div class="item-viev-products">посмотреть все товары</div>
