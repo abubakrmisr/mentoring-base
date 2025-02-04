@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+const menuHeader = (item: string): string => item;
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -8,12 +10,13 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent {
   title = 'mentoring-base';
 
   readonly headerItem1 = 'Главная';
 
-  readonly headerItem2 = 'О компании';
+  readonly aboutCompany: string = menuHeader ("О компании");
 
   readonly headerItem3 = 'Каталог';
 
