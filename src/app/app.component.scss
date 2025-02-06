@@ -52,6 +52,12 @@
     padding: 14.5px;
 }
 
+.button-background {
+    background-color: #4B565E;
+    // border-radius: 25px;
+    padding: 0;
+}
+
 .header2 {
     display: flex;
     align-items: center;
@@ -75,7 +81,6 @@
 }
 
 .search-button {
-    // border: none;
     box-shadow: none;
 }
 
