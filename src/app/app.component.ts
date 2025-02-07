@@ -1,13 +1,16 @@
-import { NgIf } from '@angular/common';
+import { NgIf, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 const menuHeader = (item: string): string => item;
 const menuHeaderNew = menuHeader ('О компании');
+  
+const newPages = [5, 4, 3, 2, 1]
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf],
+  imports: [RouterOutlet, NgIf, NgFor],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -32,5 +35,7 @@ export class AppComponent {
   readonly header2Item4 = 'Электрика';
 
   readonly header2Item5 = 'Интерьр и одежда';
+  
+  readonly newPages = newPages;
 
 }
