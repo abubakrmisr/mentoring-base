@@ -1,23 +1,30 @@
-import { NgIf, NgFor } from '@angular/common';
+import { CommonModule, NgIf, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 const menuHeader = (item: string): string => item;
-const menuHeaderNew = menuHeader ('О компании');
-  
+const menuHeaderNew = menuHeader('О компании');
+
 const newPages = [5, 4, 3, 2, 1]
+
+const menuItems = ["каталог", "стройматериалы", "инструменты", "электрика", "интерьер и одежда"]
+
+const upperCaseMenuItems = menuItems.map((item) => {
+  return item.toUpperCase();
+}
+);
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgIf, NgFor],
+  imports: [RouterOutlet, CommonModule, NgIf, NgFor],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 
 export class AppComponent {
   title = 'mentoring-base';
-  
+
   isShowSadMan = true;
 
   readonly headerItem1 = 'Главная';
@@ -35,7 +42,21 @@ export class AppComponent {
   readonly header2Item4 = 'Электрика';
 
   readonly header2Item5 = 'Интерьр и одежда';
-  
+
   readonly newPages = newPages;
+  
+  menuItems = upperCaseMenuItems;
+  
+  isUpperCase = true;
+  
+  changeMenuText() {
+    this.menuItems = upperCaseMenuItems.map(
+      (item) => this.isUpperCase ? item.toLowerCase() : item.toUpperCase()
+    )
+    
+    this.isUpperCase = !this.isUpperCase;
+  }
+  
+  isShowImg = true;
 
 }

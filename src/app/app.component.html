@@ -33,11 +33,7 @@
           <img src="/assets/light.png" alt="лого полоски">
         </div>
         <div class="header-left">
-          <div class="header-left-item">{{header2Item1}}</div>
-          <div class="header-left-item">{{header2Item2}}</div>
-          <div class="header-left-item">{{header2Item3}}</div>
-          <div class="header-left-item">{{header2Item4}}</div>
-          <div class="header-left-item">{{header2Item5}}</div>
+          <div class="header-left-item" *ngFor = "let item of menuItems">{{item}}</div>
           <form action="/search" method="get">
             <input class="search-input" type="text" name="query" placeholder="Поиск, например Круг зачистной">
             <button type="button" class="search-button">
@@ -56,6 +52,11 @@
   <button (click)="isShowSadMan = !isShowSadMan" class="button-background">
     <div class="button-content">Скрыть грустного мужика</div>
   </button>
+  
+  <button (click)="changeMenuText()">
+    <div class="button-content">Изменить текст</div>
+  </button>
+  
   <div *ngIf="isShowSadMan">
     <img src="/assets/portrait-carpenter-male-workshop.png" alt="background-large" style="width: 100%;">
   </div>
