@@ -53,7 +53,7 @@
     </div>
   </header>
 
-  <button (click)="isShowSadMan = !isShowSadMan" class="button-background">
+  <!-- <button (click)="isShowSadMan = !isShowSadMan" class="button-background">
     <div class="button-content">Скрыть грустного мужика</div>
   </button>
   <div *ngIf="isShowSadMan">
@@ -86,8 +86,7 @@
     </div>
     <div class="item-cards">
       <div class="item-cards_pagination">
-        <button type="button" class="item-cards_pagination-button active-button"
-          *ngFor=          git commit -m "Исправлен компонент app.component.ts и добавлено свойство isShowSadMan""let item of newPages">{{item}}</button>
+        <button type="button" class="item-cards_pagination-button active-button">item</button>
       </div>
       <div class="item-cards_grid">
         <div class="item-cards_grid-left">
@@ -492,5 +491,7 @@
         </div>
       </div>
     </div>
-  </footer>
+  </footer> -->
+  <router-outlet></router-outlet>
+
 </div>
