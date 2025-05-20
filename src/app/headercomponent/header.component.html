@@ -1,53 +1,90 @@
 <header>
-    <div class="header">
-      <div class="header-left">
-        <div class="header-logo">
-          <img src="/assets/egecompany.png" alt="логотип сайта">
-        </div>
-        <nav class="header-nav">
-          <div class="header-nav-item">{{headerItem1}}</div>
-          <div class="header-nav-item">{{aboutCompany}}</div>
-          <div class="header-nav-item">{{headerItem3}}</div>
-        </nav>
+  <div class="header">
+    <div class="header-left">
+      <button class="header-button" (click)="toggleCase()">
+        Изменить регистр
+      </button>
+
+      <div class="header-logo">
+        <img src="/assets/egecompany.png" alt="логотип сайта" />
       </div>
-      <div class="header-right">
-        <div class="header-logo">
-          <img src="/assets/Phone.png" alt="логотип телефона">
+      <nav class="header-nav">
+        <div class="header-nav-item">
+          <a
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="home-link"
+            >{{ headerItem1 }}</a
+          >
         </div>
-        <div class="header-nav-item">+7(965)084-29-29</div>
-        <div class="header-logo">
-          <img src="/assets/heart 1.png" alt="логотип сердечко">
+        <div class="header-nav-item">{{ headerItem2 }}</div>
+        <div class="header-nav-item">{{ headerItem3 }}</div>
+        <div style="display: flex; gap: 10px">
+          <button
+            routerLink="users"
+            type="button"
+            class="header-button"
+            style="padding: 10px"
+          >
+            Пользователи
+          </button>
+          <button
+            routerLink="todos"
+            type="button"
+            class="header-button"
+            style="padding: 10px"
+          >
+            Задачи
+          </button>
         </div>
-        <button type="button" class="header-button">
-          <div>
-            <img src="/assets/shoppingcart.png" alt="логотип тележка">
-          </div>
-          <div class="button-content">Пусто</div>
+      </nav>
+    </div>
+    <div class="header-right">
+      <div class="header-logo">
+        <img src="/assets/Phone.png" alt="логотип телефона" />
+      </div>
+      <div class="header-nav-item">+7(965)084-29-29</div>
+      <div class="header-logo">
+        <img src="/assets/heart 1.png" alt="логотип сердечко" />
+      </div>
+      <button type="button" class="header-button">
+        <div>
+          <img src="/assets/shoppingcart.png" alt="логотип тележка" />
+        </div>
+        <div class="button-content">Пусто</div>
+      </button>
+    </div>
+  </div>
+
+  <div class="header2">
+    <div class="header-left">
+      <div class="header2-logo">
+        <img src="/assets/light.png" alt="лого полоски" />
+      </div>
+      <div class="header-nav">
+        <div *ngFor="let item of headerItems" class="header-left-item">
+          {{ item }}
+        </div>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <form action="/search" method="get">
+        <input
+          class="search-input"
+          type="text"
+          name="query"
+          placeholder="Поиск, например Круг зачистной"
+        />
+        <button type="button" class="search-button">
+          <img src="/assets/search.png" alt="логотип лупа" />
         </button>
+      </form>
+      <div class="header2-logo">
+        <img src="/assets/map-pin (2) 1.png" alt="логотип локация" />
       </div>
+      <div class="moscow">Москва</div>
     </div>
-    <div class="header2">
-      <div class="header-left">
-        <div class="header2-logo">
-          <img src="/assets/light.png" alt="лого полоски">
-        </div>
-        <div class="header-left">
-          <div class="header-left-item">{{header2Item1}}</div>
-          <div class="header-left-item">{{header2Item2}}</div>
-          <div class="header-left-item">{{header2Item3}}</div>
-          <div class="header-left-item">{{header2Item4}}</div>
-          <div class="header-left-item">{{header2Item5}}</div>
-          <form action="/search" method="get">
-            <input class="search-input" type="text" name="query" placeholder="Поиск, например Круг зачистной">
-            <button type="button" class="search-button">
-              <img src="/assets/search.png" alt="логотип лупа">
-            </button>
-          </form>
-          <div class="header2-logo">
-            <img src="/assets/map-pin (2) 1.png" alt="логотип локация">
-          </div>
-          <div class="moscow">Москва</div>
-        </div>
-      </div>
-    </div>
-  </header>
+  </div>
+</header>

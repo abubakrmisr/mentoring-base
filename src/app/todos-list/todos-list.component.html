@@ -1,0 +1,11 @@
+<div class="user-cards-conteiner">
+  <div
+    *ngFor="let todo of todosService.todosSubject$ | async"
+    class="user-cards"
+  >
+    <app-todo-card
+      [todo]="todo"
+      (deleteTodo)="deleteTodo($event)"
+    ></app-todo-card>
+  </div>
+</div>

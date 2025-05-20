@@ -1,24 +1,43 @@
-import { Component } from "@angular/core";
-
-const menuHeader = (item: string): string => item;
-const menuHeaderNew = menuHeader('О компании');
+import { NgFor } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss']
-}) 
-
+  selector: 'app-header',
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive, NgFor],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
+})
 export class HeaderComponent {
-    
-    readonly headerItem1 = 'Главная';
-    readonly aboutCompany = menuHeaderNew;
-    readonly headerItem3 = 'Каталог';
-    readonly header2Item1 = 'Каталог';
-    readonly header2Item2 = 'Стройматериалы';
-    readonly header2Item3 = 'Инструменты';
-    readonly header2Item4 = 'Электрика';
-    readonly header2Item5 = 'Интерьер и одежда';
-  
-    
+  readonly headerItem1 = 'Главная';
+  readonly headerItem2 = 'О компании';
+  readonly headerItem3 = 'Каталог';
+
+  isUpperCase = false;
+  headerItems = [
+    'Каталог',
+    'Стройматериалы',
+    'Инструменты',
+    'Электрика',
+    'Интерьер и одежда',
+  ];
+
+  toggleCase() {
+    this.isUpperCase = !this.isUpperCase;
+    this.headerItems = this.headerItems.map((item) =>
+      this.changeFirstLetterCase(item)
+    );
+  }
+
+  changeFirstLetterCase(text: string): string {
+    return text
+      .split(' ')
+      .map((word) =>
+        this.isUpperCase
+          ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+          : word.charAt(0).toLowerCase() + word.slice(1)
+      )
+      .join(' ');
+  }
 }
