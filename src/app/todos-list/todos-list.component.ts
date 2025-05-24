@@ -4,6 +4,7 @@ import { TodosApiService } from './todos-api.service';
 import { TodoCardComponent } from './todo-card/todo-card.component';
 import { TodosService } from './todos.service';
 import { Todo } from '../intefaces/todos.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-todos-list',
@@ -15,8 +16,10 @@ import { Todo } from '../intefaces/todos.interface';
 })
 export class TodosListComponent {
   readonly todosApiService = inject(TodosApiService);
-  readonly todosService = inject(TodosService);
-  todos = this.todosService.todos;
+  private readonly todosService = inject(TodosService);
+
+  todos$: Observable<Todo[]> = this.todosService.todos$;
+  
   constructor() {
     this.todosApiService.getTodos().subscribe((response: Todo[]) => {
       this.todosService.setTodos(response);

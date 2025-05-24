@@ -23,9 +23,9 @@ export class HeaderComponent {
     'Интерьер и одежда',
   ];
 
-  toggleCase() {
+  toggleCase(): void {
     this.isUpperCase = !this.isUpperCase;
-    this.headerItems = this.headerItems.map((item) =>
+    this.headerItems = this.headerItems.map((item: string) =>
       this.changeFirstLetterCase(item)
     );
   }
@@ -33,7 +33,7 @@ export class HeaderComponent {
   changeFirstLetterCase(text: string): string {
     return text
       .split(' ')
-      .map((word) =>
+      .map((word: string) =>
         this.isUpperCase
           ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
           : word.charAt(0).toLowerCase() + word.slice(1)

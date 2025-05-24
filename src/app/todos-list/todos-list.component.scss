@@ -1,10 +1,10 @@
-.user-cards-conteiner {
+.todo-cards-conteiner {
     display: flex;
     flex-wrap: wrap;
     max-width: 1320px;
 }
 
-.user-cards {
+.todo-cards {
     height: 200px;
     width: 200px;
     border: 1px solid black;
@@ -14,8 +14,6 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);    
     border-radius: 12px;
     flex-direction: column;
-    font-family: Inter;
-    font-size: 16px;
     font-weight: 300;
     background-color: #2C3E50; 
     color: #ECF0F1;

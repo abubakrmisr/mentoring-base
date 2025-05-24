@@ -1,7 +1,7 @@
-<div class="user-cards-conteiner">
+<div class="todo-cards-conteiner">
   <div
-    *ngFor="let todo of todosService.todosSubject$ | async"
-    class="user-cards"
+    *ngFor="let todo of todos$ | async"
+    class="todo-cards"
   >
     <app-todo-card
       [todo]="todo"
