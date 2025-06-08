@@ -5,24 +5,34 @@ import { TodoCardComponent } from './todo-card/todo-card.component';
 import { TodosService } from './todos.service';
 import { Todo } from '../intefaces/todos.interface';
 import { Observable } from 'rxjs';
+import { CreateTodoFormComponent } from '../create-todo-form/create-todo-form.component';
 
 @Component({
   selector: 'app-todos-list',
   templateUrl: './todos-list.component.html',
   styleUrls: ['./todos-list.component.scss'],
   standalone: true,
-  imports: [NgFor, TodoCardComponent, AsyncPipe],
+  imports: [NgFor, TodoCardComponent, AsyncPipe, CreateTodoFormComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodosListComponent {
   readonly todosApiService = inject(TodosApiService);
   private readonly todosService = inject(TodosService);
 
-  todos$: Observable<Todo[]> = this.todosService.todos$;
+  readonly todos$: Observable<Todo[]> = this.todosService.todos$;
   
   constructor() {
-    this.todosApiService.getTodos().subscribe((response: Todo[]) => {
-      this.todosService.setTodos(response);
+    this.todosApiService.getTodos().subscribe((response: readonly Todo[]) => {
+      this.todosService.setTodos([...response]);
+    });
+  }
+  
+  public createTodo(FormData: Todo) {
+    this.todosService.createTodo({
+      id: new Date().getTime(),
+      title: FormData.title,
+      userId: FormData.userId,
+      completed: FormData.completed
     });
   }
 

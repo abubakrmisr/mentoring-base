@@ -1,8 +1,10 @@
-.user-cards {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
-  flex-direction: column;
+*{
   font-family: Inter;
   font-size: 16px;
 }
 
+.user-cards {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  flex-direction: column;
+}

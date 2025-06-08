@@ -4,24 +4,33 @@ import { Todo } from '../intefaces/todos.interface';
 
 @Injectable({ providedIn: 'root' })
 export class TodosService {
-  todosSubject$ = new BehaviorSubject<Todo[]>([]);
+  private readonly todosSubject$: BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([]);
 
-  todos$: Observable<Todo[]> = this.todosSubject$;
+  readonly todos$: Observable<Todo[]> = this.todosSubject$.asObservable();
 
   setTodos(todos: Todo[]): void {
     this.todosSubject$.next(todos);
   }
 
-  editTodo(editedTodo: Todo) {
+  editTodo(editedTodo: Todo): void {
     this.todosSubject$.next(
-      this.todosSubject$.value.map((todo) =>
+      this.todosSubject$.value.map((todo: Todo) =>
         todo.id === editedTodo.id ? editedTodo : todo
       )
     );
   }
 
-  createTodo(todo: Todo) {
-    this.todosSubject$.next([...this.todosSubject$.value, todo]);
+  createTodo(todo: Todo): void {
+    const existingTodo = this.todosSubject$.value.find(
+      (currentElement: Todo) => currentElement.title === todo.title
+    );
+    
+    if (existingTodo !== undefined) {
+      alert("Todo is already exist");
+    } else {
+      this.todosSubject$.next([...this.todosSubject$.value, todo]);
+      alert ("Todo is created");
+    }
   }
 
   deleteTodo(id: number) {

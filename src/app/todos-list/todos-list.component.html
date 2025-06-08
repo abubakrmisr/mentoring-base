@@ -1,11 +1,17 @@
-<div class="todo-cards-conteiner">
-  <div
-    *ngFor="let todo of todos$ | async"
-    class="todo-cards"
-  >
-    <app-todo-card
-      [todo]="todo"
-      (deleteTodo)="deleteTodo($event)"
-    ></app-todo-card>
+<div class="form-conteiner">
+  <app-create-todo-form (createTodo)="createTodo($event)"></app-create-todo-form>
+</div>
+
+<div style="display: flex; justify-content: center;">
+  <div class="todo-cards-conteiner">
+    <div
+      *ngFor="let todo of todos$ | async"
+      class="todo-cards"
+    >
+      <app-todo-card
+        [todo]="todo"
+        (deleteTodo)="deleteTodo($event)"
+      ></app-todo-card>
+    </div>
   </div>
 </div>
