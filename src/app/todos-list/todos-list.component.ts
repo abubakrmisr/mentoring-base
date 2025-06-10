@@ -22,8 +22,8 @@ export class TodosListComponent {
   readonly todos$: Observable<Todo[]> = this.todosService.todos$;
   
   constructor() {
-    this.todosApiService.getTodos().subscribe((response: readonly Todo[]) => {
-      this.todosService.setTodos([...response]);
+    this.todosApiService.getTodos().subscribe((response: Todo[]) => {
+      this.todosService.setTodos(response);
     });
   }
   

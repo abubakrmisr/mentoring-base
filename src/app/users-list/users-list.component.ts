@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { UsersApiService } from './users-api.service';
 import { UserCardComponent } from './user-card/user-card.component';
 import { UsersService } from './users.service';
-import { User } from '../intefaces/users.interface';
+import { User, User_2 } from '../intefaces/users.interface';
 import { Observable } from 'rxjs';
 import { CreatUserFormComponent } from '../creat-user-form/creat-user-form.component';
 
@@ -22,19 +22,19 @@ export class UsersListComponent {
   readonly users$: Observable<User[]> = this.usersService.users$;
 
   constructor() {
-    this.usersApiService.getUsers().subscribe((response: readonly User[]) => {
-      this.usersService.setUsers([...response]);
+    this.usersApiService.getUsers().subscribe((response: User[]) => {
+      this.usersService.setUsers(response);
     });
   }
   
-  createUser(formData: User){
+  createUser(formData: User_2){
     this.usersService.createUser({
       id: new Date().getTime(),
       name: formData.name,
       email: formData.email,
       website: formData.website,
       company: {
-        name: formData.company.name
+        name: formData.companyName
       }
     });
   }

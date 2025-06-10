@@ -1,45 +1,48 @@
 <h1>CREATE TODO</h1>
 <div class="form-container">
-    <form [formGroup]="form" (ngSubmit)="submitForm()">
-        
-        <p>TASK TEXT</p>
-        <input type="text" class="form-input" formControlName="title">
-        <div
-        *ngIf="
-          form.controls['title'].invalid &&
-          (form.controls['title'].dirty ||
-          form.controls['title'].touched)
-        "
-        class="alert"
-      >
-        <div *ngIf="form.controls['title'].errors">Please enter text</div>
-      </div>
-      
-          <p>TASK AUTHOR</p>
-        <input type="text" class="form-input" formControlName="userId">
-        <div
-        *ngIf="
-          form.controls['userId'].invalid &&
-          (form.controls['userId'].dirty ||
-          form.controls['userId'].touched)
-        "
-        class="alert"
-      >
-        <div *ngIf="form.controls['userId'].errors">Please enter userId</div>
-      </div>
-      
-          <p>TASK COMPLETED</p>
-        <input type="text" class="form-input" formControlName="completed">
-        <div
-        *ngIf="
-          form.controls['completed'].invalid &&
-          (form.controls['completed'].dirty ||
-          form.controls['completed'].touched)
-        "
-        class="alert"
-      >
-        <div *ngIf="form.controls['completed'].errors">Please enter status</div>
-      </div>
-          <button class="form-button" type="submit" [disabled]="form.invalid">CREATE TODO</button>
-    </form>
+  <form [formGroup]="form" (ngSubmit)="submitForm()">
+    <p>TASK TEXT</p>
+    <input type="text" class="form-input" formControlName="title" />
+    <div
+      *ngIf="
+        form.controls['title'].invalid &&
+        (form.controls['title'].dirty || form.controls['title'].touched)
+      "
+      class="alert"
+    >
+      <div *ngIf="form.controls['title'].errors">Please enter text</div>
+    </div>
+
+    <p>TASK AUTHOR</p>
+    <input type="text" class="form-input" formControlName="userId" />
+    <div
+      *ngIf="
+        form.controls['userId'].invalid &&
+        (form.controls['userId'].dirty || form.controls['userId'].touched)
+      "
+      class="alert"
+    >
+      <div *ngIf="form.controls['userId'].errors">Please enter userId</div>
+    </div>
+
+    <p>TASK COMPLETED</p>
+    <input type="text" class="form-input" formControlName="completed" />
+    <div
+      *ngIf="
+        form.controls['completed'].invalid &&
+        (form.controls['completed'].dirty || form.controls['completed'].touched)
+      "
+      class="alert"
+    >
+      <div *ngIf="form.controls['completed'].errors">Please enter status</div>
+    </div>
+    <button
+      class="form-button"
+      type="submit"
+      [disabled]="form.invalid"
+      mut-button
+    >
+      CREATE TODO
+    </button>
+  </form>
 </div>

@@ -2,7 +2,7 @@
   <app-creat-user-form (createUser)="createUser($event)"></app-creat-user-form>
 </div>
 
-<div style="display: flex; justify-content: center;">
+<div class="ItemsGridPage">
   <div class="user-cards-conteiner">
     <div *ngFor="let user of users$ | async" class="user-cards">
       <app-user-card

@@ -1,4 +1,4 @@
-*{
+* {
   font-family: Inter;
   font-size: 16px;
 }
@@ -7,4 +7,12 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   border-radius: 12px;
   flex-direction: column;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

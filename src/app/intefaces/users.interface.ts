@@ -21,3 +21,11 @@ export interface User {
         bs?: string;
     };
 }
+
+export interface User_2 {
+    id: number;
+    name: string;
+    email: string;
+    website: string;
+    companyName: string;
+}
