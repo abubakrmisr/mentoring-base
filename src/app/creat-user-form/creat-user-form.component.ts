@@ -7,42 +7,38 @@ import {
 } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { User, User_2 } from '../intefaces/users.interface';
+import { CreateUser } from '../intefaces/users.interface';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-creat-user-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, MatButtonModule],
+  imports: [
+    ReactiveFormsModule,
+    NgIf,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
   templateUrl: './creat-user-form.component.html',
   styleUrls: ['./creat-user-form.component.scss'],
 })
 export class CreatUserFormComponent {
   public form = new FormGroup({
-    id: new FormControl<number>(new Date().getTime(), [Validators.required]),
-    name: new FormControl('', [Validators.required, Validators.minLength(2)]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    website: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3),
-    ]),
-    companyName: new FormControl('', [
-      Validators.required,
-      Validators.minLength(2),
-    ]),
+    id: new FormControl<number>(new Date().getTime(), {nonNullable:true, validators: [Validators.required]}),
+    name: new FormControl('', {nonNullable:true, validators: [Validators.minLength(2), Validators.required]}),
+    email: new FormControl('', {nonNullable:true, validators: [Validators.email, Validators.required]}),
+    website: new FormControl('', {nonNullable:true, validators: [Validators.minLength(3), Validators.required]}),
+    companyName: new FormControl('', {nonNullable:true, validators: [Validators.minLength(2), Validators.required]}),
   });
 
   @Output()
-  createUser = new EventEmitter<User_2>();
+  createUser = new EventEmitter<CreateUser>();
 
   public submitForm(): void {
-    const value = this.form.value;
-    this.createUser.emit({
-      id: value.id!,
-      name: value.name!,
-      email: value.email!,
-      website: value.website!,
-      companyName: value.companyName!,
-    });
+    const user: CreateUser = this.form.getRawValue();
+    this.createUser.emit(user);
     this.form.reset();
   }
 }

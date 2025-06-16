@@ -22,7 +22,7 @@ export interface User {
     };
 }
 
-export interface User_2 {
+export interface CreateUser {
     id: number;
     name: string;
     email: string;

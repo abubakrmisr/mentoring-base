@@ -7,43 +7,33 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { Todo_2 } from '../intefaces/todos.interface';
+import { Todo } from '../intefaces/todos.interface';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
 
 @Component({
   selector: 'app-create-todo-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf, MatButtonModule],
+  imports: [ReactiveFormsModule, NgIf, MatButtonModule, MatFormFieldModule, MatInputModule],
   templateUrl: './create-todo-form.component.html',
   styleUrl: './create-todo-form.component.scss',
 })
 export class CreateTodoFormComponent {
   public form = new FormGroup({
-    title: new FormControl<string>('', [
-      Validators.required,
-      Validators.minLength(3),
-    ]),
-    userId: new FormControl<number | null>(null, [
-      Validators.required,
-      Validators.minLength(1),
-    ]),
-    completed: new FormControl<boolean | null>(null, [
-      Validators.required,
-      Validators.minLength(2),
-    ]),
+    id: new FormControl<number>(new Date().getTime(), {nonNullable: true, validators: [Validators.minLength(3),Validators.required]}),
+    title: new FormControl<string>('', {nonNullable: true, validators: [Validators.minLength(3),Validators.required]}),
+    userId: new FormControl<number | null>(null, {nonNullable: true, validators: [Validators.min(1), Validators.required]}),
+    completed: new FormControl<boolean | null>(null, {nonNullable: true, validators: [Validators.required]}),
   });
 
   @Output()
-  createTodo = new EventEmitter<Todo_2>();
+  createTodo = new EventEmitter<Todo>();
 
   public submitForm(): void {
-    if (this.form.valid) {
-      this.createTodo.emit({
-        id: new Date().getTime(),
-        userId: this.form.value.userId!,
-        title: this.form.value.title!,
-        completed: this.form.value.completed!,
-      });
-      this.form.reset();
-    }
+    const todo: Todo = this.form.getRawValue();
+    this.createTodo.emit(todo);
+    this.form.reset();
   }
+  
 }

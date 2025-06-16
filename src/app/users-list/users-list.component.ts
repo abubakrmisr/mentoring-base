@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { UsersApiService } from './users-api.service';
 import { UserCardComponent } from './user-card/user-card.component';
 import { UsersService } from './users.service';
-import { User, User_2 } from '../intefaces/users.interface';
+import { User, CreateUser } from '../intefaces/users.interface';
 import { Observable } from 'rxjs';
 import { CreatUserFormComponent } from '../creat-user-form/creat-user-form.component';
 
@@ -27,7 +27,7 @@ export class UsersListComponent {
     });
   }
   
-  createUser(formData: User_2){
+  createUser(formData: CreateUser){
     this.usersService.createUser({
       id: new Date().getTime(),
       name: formData.name,
