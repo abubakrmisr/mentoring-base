@@ -49,13 +49,13 @@ export class CreateTodoFormComponent {
 
   public submitForm(): void {
     const rawValue: Todo = this.form.getRawValue();
-    const userIdValue: number = rawValue.userId ?? 0;
-    const completedValue: boolean = rawValue.completed ?? false;
+    // const userIdValue: number = rawValue.userId ?? 0;
+    // const completedValue: boolean = rawValue.completed ?? false;
     const todo: Todo = {
       id: rawValue.id,
       title: rawValue.title,
-      userId: userIdValue,
-      completed: completedValue,
+      userId: rawValue.userId,
+      completed: rawValue.completed,
     };
 
     this.createTodo.emit(todo);
