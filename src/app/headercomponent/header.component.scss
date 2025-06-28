@@ -1,139 +1,154 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    color: white;
-    background-color: #4b565e;
-    padding: 0 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  color: white;
+  background-color: #4b565e;
+  padding: 0 200px;
 }
 
 .header-left {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header-logo {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .header-nav {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header-nav-item {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .home-link {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    transition: color 0.3s;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
 .home-link:hover {
-    color: #f0f0f0;
+  color: #f0f0f0;
 }
 
 .home-link.active {
-    color: #ffcc00;
+  color: #ffcc00;
 }
 
 .header-right {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
 }
 
 .header-button {
-    display: flex;
-    background-color: #4b565e;
-    border-radius: 25px;
-    border-color: #f0ba4e;
-    border-width: 2px;
-    align-items: center;
-    color: white;
-    padding: 5px;
-    padding-left: 14px;
-    margin-right: 20px;
+  display: flex;
+  background-color: #4b565e;
+  border-radius: 25px;
+  border-color: #f0ba4e;
+  border-width: 2px;
+  align-items: center;
+  color: white;
+  padding: 10px;
+  padding-left: 14px;
+  padding-right: 14px;
+  margin-right: 20px;
 }
 
 .button-content {
-    display: flex;
-    padding: 0px 10px;
+  display: flex;
+  padding: 0px 10px;
+}
+
+.header-button-backet {
+  display: flex;
+  background-color: #4b565e;
+  border-radius: 25px;
+  border-color: #f0ba4e;
+  border-width: 2px;
+  align-items: center;
+  color: white;
+  padding: 3px;
+  padding-left: 14px;
+  padding-right: 14px;
+  margin-right: 20px;
 }
 
 .header2 {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    color: black;
-    background-color: #f0ba4e;
-    padding: 0 200px;
-    font-size: 11px;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  color: black;
+  background-color: #f0ba4e;
+  padding: 0 200px;
+  font-size: 11px;
+  justify-content: space-between;
 }
 
 .header-left-item {
-    margin-right: 20px;
-    font-family: Inter;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 16.94px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+  margin-right: 20px;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16.94px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 
 .search-button {
-    box-shadow: none;
-    border: none;
+  box-shadow: none;
+  border: none;
 }
 
 .search-input {
-    font-family: Inter;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19.36px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 
 .header2-logo {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 form {
-    display: flex;
-    margin: 20px;
-    align-items: center;
+  display: flex;
+  margin: 20px;
+  align-items: center;
 }
 
 input[type="text"] {
-    width: 300px;
-    height: 15px;
-    padding: 0px;
-    margin-right: 0px;
-    background-color: #f0ba4e;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    border-bottom: 1px solid-black;
-    font-size: 11px;
+  width: 300px;
+  height: 15px;
+  padding: 0px;
+  margin-right: 0px;
+  background-color: #f0ba4e;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid-black;
+  font-size: 11px;
 }
 
 button {
-    align-items: center;
-    padding: 0px;
-    background-color: #f0ba4e;
-    border-color: #f0ba4e;
+  align-items: center;
+  padding: 0px;
+  background-color: #f0ba4e;
+  border-color: #f0ba4e;
 }
 
 .moscow {
-    color: white;
-    align-items: center;
+  color: white;
+  align-items: center;
 }

@@ -7,9 +7,9 @@
     <div *ngFor="let user of users$ | async" class="user-cards">
       <app-user-card
         [user]="user"
-        (deletUser)="deleteUser($event)"
+        (deleteUser)="deleteUser($event)"
+        (editUser)="editUser($event)"
       ></app-user-card>
     </div>
   </div>
 </div>
-

@@ -12,7 +12,7 @@ import { CreatUserFormComponent } from '../creat-user-form/creat-user-form.compo
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss'],
   standalone: true,
-  imports: [NgFor, UserCardComponent, AsyncPipe, CreatUserFormComponent ],
+  imports: [NgFor, UserCardComponent, AsyncPipe, CreatUserFormComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersListComponent {
@@ -26,20 +26,29 @@ export class UsersListComponent {
       this.usersService.setUsers(response);
     });
   }
-  
-  createUser(formData: CreateUser){
+
+  createUser(formData: CreateUser) {
     this.usersService.createUser({
       id: new Date().getTime(),
       name: formData.name,
       email: formData.email,
       website: formData.website,
       company: {
-        name: formData.companyName
-      }
+        name: formData.companyName,
+      },
     });
   }
 
   deleteUser(id: number) {
     this.usersService.deleteUser(id);
+  }
+
+  public editUser(user: CreateUser) {
+    this.usersService.editUser({
+      ...user,
+      company: {
+        name: user.companyName,
+      },
+    });
   }
 }

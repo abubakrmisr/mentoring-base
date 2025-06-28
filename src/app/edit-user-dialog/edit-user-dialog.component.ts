@@ -1,18 +1,19 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { MAT_DIALOG_DATA, MatDialogClose } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { CreateUser } from '../intefaces/users.interface';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { User } from '../intefaces/users.interface';
 
 @Component({
-  selector: 'app-creat-user-form',
+  selector: 'app-edit-user-dialog',
   standalone: true,
   imports: [
     ReactiveFormsModule,
@@ -20,40 +21,34 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogClose,
   ],
-  templateUrl: './creat-user-form.component.html',
-  styleUrls: ['./creat-user-form.component.scss'],
+  templateUrl: './edit-user-dialog.component.html',
+  styleUrl: './edit-user-dialog.component.scss',
 })
-export class CreatUserFormComponent {
+export class EditUserDialogComponent {
+  readonly data = inject<{ user: User }>(MAT_DIALOG_DATA);
+
   public form = new FormGroup({
-    id: new FormControl(new Date().getTime(), {
+    id: new FormControl<number>(this.data.user.id, {
       nonNullable: true,
       validators: [Validators.required],
     }),
-    name: new FormControl('', {
+    name: new FormControl(this.data.user.name, {
       nonNullable: true,
       validators: [Validators.minLength(2), Validators.required],
     }),
-    email: new FormControl('', {
+    email: new FormControl(this.data.user.email, {
       nonNullable: true,
       validators: [Validators.email, Validators.required],
     }),
-    website: new FormControl('', {
+    website: new FormControl(this.data.user.website, {
       nonNullable: true,
       validators: [Validators.minLength(3), Validators.required],
     }),
-    companyName: new FormControl('', {
+    companyName: new FormControl(this.data.user.company.name, {
       nonNullable: true,
       validators: [Validators.minLength(2), Validators.required],
     }),
   });
-
-  @Output()
-  createUser = new EventEmitter<CreateUser>();
-
-  public submitForm(): void {
-    const user: CreateUser = this.form.getRawValue();
-    this.createUser.emit(user);
-    this.form.reset();
-  }
 }
