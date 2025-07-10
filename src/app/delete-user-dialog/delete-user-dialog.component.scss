@@ -1,0 +1,22 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    padding: 30px;
+    width: auto;
+    border-radius: 50%;
+  }
+  
+  .form-input {
+    width: 150px;
+  }
+  
+  .form-button {
+    display: flex;
+    width: 210px;
+    margin-top: 20px;
+  }
+  
+  .alert {
+    color: red;
+  }

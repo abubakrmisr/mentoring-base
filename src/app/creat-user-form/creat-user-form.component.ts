@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { CreateUser } from '../intefaces/users.interface';
+import { CreateEditUser } from '../intefaces/users.interface';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
@@ -49,10 +49,10 @@ export class CreatUserFormComponent {
   });
 
   @Output()
-  createUser = new EventEmitter<CreateUser>();
+  createUser = new EventEmitter<CreateEditUser>();
 
   public submitForm(): void {
-    const user: CreateUser = this.form.getRawValue();
+    const user: CreateEditUser = this.form.getRawValue();
     this.createUser.emit(user);
     this.form.reset();
   }
