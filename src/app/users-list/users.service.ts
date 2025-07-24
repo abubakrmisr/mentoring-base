@@ -4,7 +4,9 @@ import { User } from '../intefaces/users.interface';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
-  private usersSubject$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  private usersSubject$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>(
+    []
+  );
 
   users$: Observable<User[]> = this.usersSubject$.asObservable();
 
@@ -20,16 +22,16 @@ export class UsersService {
     );
   }
 
-  createUser(user: User): void {
+  createUser(user: User): boolean {
     const existingUser = this.usersSubject$.value.find(
       (currentElement: User) => currentElement.email === user.email
     );
-    
+
     if (existingUser !== undefined) {
-      alert("User is already exists");
+      return false;
     } else {
-    this.usersSubject$.next([...this.usersSubject$.value, user]);
-      alert("User is created");
+      this.usersSubject$.next([...this.usersSubject$.value, user]);
+      return true;
     }
   }
 

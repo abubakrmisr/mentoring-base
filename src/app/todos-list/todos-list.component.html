@@ -1,16 +1,16 @@
-<div class="form-conteiner">
-  <app-create-todo-form (createTodo)="createTodo($event)"></app-create-todo-form>
+<div>
+  <app-create-todo-form
+    (createTodo)="createTodo($event)"
+  ></app-create-todo-form>
 </div>
 
 <div class="ItemsGridPage">
   <div class="todo-cards-conteiner">
-    <div
-      *ngFor="let todo of todos$ | async"
-      class="todo-cards"
-    >
+    <div *ngFor="let todo of todos$ | async">
       <app-todo-card
         [todo]="todo"
         (deleteTodo)="deleteTodo($event)"
+        (editTodo)="editTodo($event)"
       ></app-todo-card>
     </div>
   </div>

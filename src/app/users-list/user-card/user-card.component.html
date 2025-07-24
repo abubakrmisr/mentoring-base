@@ -1,10 +1,51 @@
-<div>
-  <p>{{ user.name }}</p>
-  <p>{{ user.email }}</p>
-  <p>{{ user.website }}</p>
-  <p>{{ user.company.name }}</p>
-  <button matButton="elevated" class="delete-btn" (click)="openDeleteDialog()">
-    УДАЛИТЬ ЮЗЕРА
-  </button>
-  <button class="delete-btn" (click)="openDialog()">РЕДАКТИРОВАТЬ ЮЗЕРА</button>
-</div>
+<mat-card class="user-cards">
+  <div>
+    <mat-card-header style="padding: 0">
+      <div mat-card-avatar class="avatar">
+        <mat-icon>person</mat-icon>
+      </div>
+      <h2>{{ user.name }}</h2>
+    </mat-card-header>
+    <p>{{ user.email }}</p>
+
+    <p>
+      Вебсайт:
+      <a
+        [href]="user.website"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="website-link"
+      >
+        {{ user.website }}
+      </a>
+    </p>
+    <mat-card-title>
+      <p>{{ user.company.name }}</p>
+    </mat-card-title>
+
+    <section>
+      <div>
+        <button
+          mat-raised-button
+          matFab
+          aria-label="delete with icon"
+          color="warn"
+          class="mat-card-button"
+          (click)="openDeleteDialog()"
+        >
+          УДАЛИТЬ ЮЗЕРА
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          class="mat-card-button"
+          (click)="openDialog()"
+        >
+          РЕДАКТИРОВАТЬ ЮЗЕРА
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
+    </section>
+  </div>
+</mat-card>

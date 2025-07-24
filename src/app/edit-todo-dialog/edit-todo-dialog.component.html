@@ -1,0 +1,56 @@
+<form [formGroup]="form" class="form-container">
+  <mat-form-field appearance="fill">
+    <mat-label>TASK TEXT:</mat-label>
+    <input
+      matInput
+      type="text"
+      class="form-input"
+      formControlName="title"
+      required
+    />
+    <mat-error *ngIf="form.get('title')?.hasError('required')">
+      Task is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>TASK AUTHOR:</mat-label>
+    <input
+      matInput
+      type="text"
+      class="form-input"
+      formControlName="userId"
+      required
+    />
+    <mat-error *ngIf="form.get('userId')?.hasError('required')">
+      Author is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>TASK COMPLETED:</mat-label>
+
+    <input
+      matInput
+      type="text"
+      class="form-input"
+      formControlName="completed"
+      required
+    />
+
+    <mat-error *ngIf="form.get('completed')?.hasError('required')">
+      Task completed is required
+    </mat-error>
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="form-button"
+    type="submit"
+    [disabled]="form.invalid"
+    [mat-dialog-close]="form.value"
+  >
+    EDIT TODO
+  </button>
+</form>

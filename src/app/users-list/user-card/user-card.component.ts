@@ -10,6 +10,12 @@ import { CreateEditUser, User } from '../../intefaces/users.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { EditUserDialogComponent } from '../../edit-user-dialog/edit-user-dialog.component';
 import { DeleteUserDialogComponent } from '../../delete-user-dialog/delete-user-dialog.component';
+import { MatCard, MatCardHeader, MatCardTitle } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-user-card',
@@ -17,6 +23,15 @@ import { DeleteUserDialogComponent } from '../../delete-user-dialog/delete-user-
   styleUrls: ['./user-card.component.scss'],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
+    MatSnackBarModule,
+  ],
 })
 export class UserCardComponent {
   @Input()
@@ -29,6 +44,7 @@ export class UserCardComponent {
   editUser = new EventEmitter<CreateEditUser>();
 
   readonly dialog = inject(MatDialog);
+  readonly snackBar = inject(MatSnackBar);
 
   openDialog(): void {
     this.dialog
@@ -37,8 +53,15 @@ export class UserCardComponent {
       })
       .afterClosed()
       .subscribe((editResult: CreateEditUser) => {
-        if (editResult) {
+        if (editResult !== undefined) {
+          this.snackBar.open('USER IS EDITED', 'OK', {
+            duration: 3000,
+          });
           this.editUser.emit(editResult);
+        } else {
+          this.snackBar.open('USER IS NOT EDITED', 'OK', {
+            duration: 3000,
+          });
         }
       });
   }
@@ -51,8 +74,14 @@ export class UserCardComponent {
       .afterClosed()
       .subscribe((userId: number) => {
         if (userId !== undefined) {
-          console.log(`User with ID: ${userId} has been deleted`);
+          this.snackBar.open('USER IS DELETED', 'OK', {
+            duration: 3000,
+          });
           this.deleteUser.emit(userId);
+        } else {
+          this.snackBar.open('USER IS NOT DELETED', 'OK', {
+            duration: 3000,
+          });
         }
       });
   }

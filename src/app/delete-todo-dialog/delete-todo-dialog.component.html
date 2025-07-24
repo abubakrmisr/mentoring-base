@@ -1,9 +1,6 @@
 <h2 mat-dialog-title class="dialog-title">Delete file</h2>
 <mat-dialog-content class="dialog-content">
-  <p>Would you like to delete</p>
-  <p>
-    <strong>{{ data.user.name }}?</strong>
-  </p>
+  <p>Would you like to delete this todo?</p>
 </mat-dialog-content>
 <mat-dialog-actions class="dialog-actions">
   <button matButton mat-dialog-close>No</button>
@@ -11,7 +8,7 @@
     matButton
     mat-raised-button
     color="primary"
-    [mat-dialog-close]="data.user.id"
+    [mat-dialog-close]="data.todo.id"
     cdkFocusInitial
   >
     Ok

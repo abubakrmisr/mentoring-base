@@ -1,17 +1,17 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
+  MatDialogRef,
+  MAT_DIALOG_DATA,
   MatDialogActions,
   MatDialogClose,
   MatDialogContent,
-  MatDialogRef,
   MatDialogTitle,
-  MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { Todo } from '../intefaces/todos.interface';
 import { MatButtonModule } from '@angular/material/button';
-import { User } from '../intefaces/users.interface';
 
 @Component({
-  selector: 'app-delete-user-dialog',
+  selector: 'app-delete-todo-dialog',
   standalone: true,
   imports: [
     MatButtonModule,
@@ -20,11 +20,11 @@ import { User } from '../intefaces/users.interface';
     MatDialogTitle,
     MatDialogContent,
   ],
-  templateUrl: './delete-user-dialog.component.html',
-  styleUrl: './delete-user-dialog.component.scss',
+  templateUrl: './delete-todo-dialog.component.html',
+  styleUrl: './delete-todo-dialog.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DeleteUserDialogComponent {
+export class DeleteTodoDialogComponent {
   readonly dialogRef = inject(MatDialogRef);
-  readonly data = inject<{ user: User }>(MAT_DIALOG_DATA);
+  readonly data = inject<{ todo: Todo }>(MAT_DIALOG_DATA);
 }

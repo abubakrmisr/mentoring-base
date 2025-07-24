@@ -1,59 +1,59 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { CreateEditUser } from '../intefaces/users.interface';
+import { CreateEditUser, User } from '../intefaces/users.interface';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateUserDialogComponent } from '../create-user-dialog/create-user-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-creat-user-form',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NgIf,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatIconModule,
+    MatSnackBarModule,
   ],
   templateUrl: './creat-user-form.component.html',
   styleUrls: ['./creat-user-form.component.scss'],
 })
 export class CreatUserFormComponent {
-  public form = new FormGroup({
-    id: new FormControl(new Date().getTime(), {
-      nonNullable: true,
-      validators: [Validators.required],
-    }),
-    name: new FormControl('', {
-      nonNullable: true,
-      validators: [Validators.minLength(2), Validators.required],
-    }),
-    email: new FormControl('', {
-      nonNullable: true,
-      validators: [Validators.email, Validators.required],
-    }),
-    website: new FormControl('', {
-      nonNullable: true,
-      validators: [Validators.minLength(3), Validators.required],
-    }),
-    companyName: new FormControl('', {
-      nonNullable: true,
-      validators: [Validators.minLength(2), Validators.required],
-    }),
-  });
-
   @Output()
   createUser = new EventEmitter<CreateEditUser>();
 
-  public submitForm(): void {
-    const user: CreateEditUser = this.form.getRawValue();
-    this.createUser.emit(user);
-    this.form.reset();
+  @Input()
+  user!: User;
+
+  readonly dialog = inject(MatDialog);
+  readonly snackBar = inject(MatSnackBar);
+
+  openDialog(): void {
+    this.dialog
+      .open(CreateUserDialogComponent, {
+        data: { user: this.user },
+      })
+      .afterClosed()
+      .subscribe((editResult: CreateEditUser) => {
+        if (editResult !== undefined) {
+          this.snackBar.open('USER IS CREATED', 'OK', {
+            duration: 3000,
+          });
+          this.createUser.emit(editResult);
+        } else {
+          this.snackBar.open('USER IS NOT CREATED', 'OK', {
+            duration: 3000,
+          });
+        }
+      });
   }
 }

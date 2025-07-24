@@ -13,7 +13,7 @@
 .user-cards-conteiner {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1320px;
+  max-width: 1380px;
 }
 
 .user-cards {
@@ -34,33 +34,5 @@
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.delete-btn {
-  background-color: #e74c3c;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  &:hover {
-    background-color: #c0392b;
-  }
-
-  &:active {
-    background-color: #a93226;
   }
 }

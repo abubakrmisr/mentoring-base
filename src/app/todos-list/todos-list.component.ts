@@ -20,23 +20,29 @@ export class TodosListComponent {
   private readonly todosService = inject(TodosService);
 
   readonly todos$: Observable<Todo[]> = this.todosService.todos$;
-  
+
   constructor() {
     this.todosApiService.getTodos().subscribe((response: Todo[]) => {
       this.todosService.setTodos(response);
     });
   }
-  
+
   public createTodo(FormData: Todo) {
     this.todosService.createTodo({
       id: new Date().getTime(),
       title: FormData.title,
       userId: FormData.userId,
-      completed: FormData.completed
+      completed: FormData.completed,
     });
   }
 
   deleteTodo(id: number) {
     this.todosService.deleteTodo(id);
+  }
+
+  public editTodo(todo: Todo) {
+    this.todosService.editTodo({
+      ...todo,
+    });
   }
 }

@@ -1,8 +1,8 @@
 <div>
-  <button (click)="isShowSadMan = !isShowSadMan" class="button-background">
-    <div class="button-content">Скрыть грустного мужика</div>
+  <button (click)="isShowSadMan = !isShowSadMan" class="sad-man-btn">
+    <div>Скрыть грустного мужика</div>
   </button>
-    
+
   <div *ngIf="isShowSadMan">
     <img
       src="/assets/portrait-carpenter-male-workshop.png"
@@ -46,26 +46,10 @@
         >
           1
         </button>
-        <button
-          type="button"
-        >
-          2
-        </button>
-        <button
-          type="button"
-        >
-          3
-        </button>
-        <button
-          type="button"
-        >
-          4
-        </button>
-        <button
-          type="button"
-        >
-          5
-        </button>
+        <button type="button">2</button>
+        <button type="button">3</button>
+        <button type="button">4</button>
+        <button type="button">5</button>
       </div>
       <div class="item-cards_grid">
         <div class="item-cards_grid-left">

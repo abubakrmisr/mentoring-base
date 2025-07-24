@@ -1,10 +1,10 @@
-<div class="form-conteiner">
+<div>
   <app-creat-user-form (createUser)="createUser($event)"></app-creat-user-form>
 </div>
 
 <div class="ItemsGridPage">
   <div class="user-cards-conteiner">
-    <div *ngFor="let user of users$ | async" class="user-cards">
+    <div *ngFor="let user of users$ | async">
       <app-user-card
         [user]="user"
         (deleteUser)="deleteUser($event)"
