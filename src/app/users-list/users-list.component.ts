@@ -5,8 +5,7 @@ import { UserCardComponent } from './user-card/user-card.component';
 import { UsersService } from './users.service';
 import { User, CreateEditUser } from '../intefaces/users.interface';
 import { Observable } from 'rxjs';
-import { CreatUserFormComponent } from '../creat-user-form/creat-user-form.component';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { CreatUserFormComponent } from '../creat-user-dialog-launcher/creat-user-dialog-launcher.component';
 
 @Component({
   selector: 'app-users-list',
@@ -17,8 +16,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     NgFor,
     UserCardComponent,
     AsyncPipe,
-    CreatUserFormComponent,
-    MatSnackBarModule,
+    CreatUserFormComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -27,7 +25,6 @@ export class UsersListComponent {
   private readonly usersService = inject(UsersService);
 
   readonly users$: Observable<User[]> = this.usersService.users$;
-  readonly snackBar = inject(MatSnackBar);
 
   constructor() {
     this.usersApiService.getUsers().subscribe((response: User[]) => {

@@ -1,17 +1,17 @@
-<mat-card class="user-cards">
-  <mat-card-title>
+<mat-card class="todo-cards">
+  <mat-card-title class="card-title">
     <span>ТЕКСТ ЗАДАЧИ:</span>
     <p>{{ todo.title }}</p>
   </mat-card-title>
 
-  <mat-card-content>
+  <mat-card-content class="card-content">
     <p><strong>АВТОР ЗАДАЧИ:</strong> {{ todo.userId }}</p>
     <p>
       <strong>ЗАДАЧА ЗАВЕРШЕНА:</strong> {{ todo.completed ? "ДА" : "НЕТ" }}
     </p>
   </mat-card-content>
 
-  <mat-card-actions>
+  <mat-card-actions class="card-actions">
     <button
       mat-raised-button
       color="warn"
