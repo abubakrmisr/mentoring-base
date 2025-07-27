@@ -46,10 +46,6 @@ export class TodoCardComponent {
   readonly dialog = inject(MatDialog);
   readonly snackBar = inject(MatSnackBar);
 
-  showSnack(message: string, duration: number = 3000): void {
-    this.snackBar.open(message, 'OK', { duration });
-  }
-
   openDialog(): void {
     this.dialog
       .open(EditTodoDialogComponent, {
@@ -57,9 +53,16 @@ export class TodoCardComponent {
       })
       .afterClosed()
       .subscribe((editResult: Todo) => {
-        editResult
-          ? (this.showSnack('TODO IS EDITED'), this.editTodo.emit(editResult))
-          : this.showSnack('TODO IS NOT EDITED');
+        if (editResult !== undefined) {
+          this.snackBar.open('TODO IS EDITED', 'OK', {
+            duration: 3000,
+          });
+          this.editTodo.emit(editResult);
+        } else {
+          this.snackBar.open('TODO IS NOT EDITED', 'OK', {
+            duration: 3000,
+          });
+        }
       });
   }
 
@@ -70,9 +73,16 @@ export class TodoCardComponent {
       })
       .afterClosed()
       .subscribe((todoId: number) => {
-        todoId
-          ? (this.showSnack('TODO IS DELETED'), this.deleteTodo.emit(todoId))
-          : this.showSnack('TODO IS NOT DELETED');
+        if (todoId !== undefined) {
+          this.snackBar.open('TODO IS DELETED', 'OK', {
+            duration: 3000,
+          });
+          this.deleteTodo.emit(todoId);
+        } else {
+          this.snackBar.open('TODO IS NOT DELETED', 'OK', {
+            duration: 3000,
+          });
+        }
       });
   }
 }

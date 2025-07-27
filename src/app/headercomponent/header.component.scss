@@ -122,7 +122,13 @@
   margin-right: 5px;
 }
 
-.search-input[type="text"] {
+form {
+  display: flex;
+  margin: 20px;
+  align-items: center;
+}
+
+input[type="text"] {
   width: 300px;
   height: 15px;
   padding: 0px;
@@ -135,7 +141,7 @@
   font-size: 11px;
 }
 
-.search-button {
+button {
   align-items: center;
   padding: 0px;
   background-color: #f0ba4e;

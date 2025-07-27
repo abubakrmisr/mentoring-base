@@ -5,7 +5,7 @@ import { TodoCardComponent } from './todo-card/todo-card.component';
 import { TodosService } from './todos.service';
 import { Todo } from '../intefaces/todos.interface';
 import { Observable } from 'rxjs';
-import { CreateTodoFormComponent } from '../create-todo-dialog-launcher/create-todo-dialog-launcher.component';
+import { CreateTodoFormComponent } from '../create-todo-form/create-todo-form.component';
 
 @Component({
   selector: 'app-todos-list',

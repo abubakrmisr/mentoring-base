@@ -26,9 +26,13 @@ export class UsersService {
     const existingUser = this.usersSubject$.value.find(
       (currentElement: User) => currentElement.email === user.email
     );
-    return existingUser
-      ? false
-      : (this.usersSubject$.next([...this.usersSubject$.value, user]), true);
+
+    if (existingUser !== undefined) {
+      return false;
+    } else {
+      this.usersSubject$.next([...this.usersSubject$.value, user]);
+      return true;
+    }
   }
 
   deleteUser(id: number) {
