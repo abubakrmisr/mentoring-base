@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { MatDialogClose } from '@angular/material/dialog';
+import { Component, inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogClose } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
 import {
   FormGroup,
   FormControl,
@@ -14,11 +15,13 @@ import {
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { Todo } from '../intefaces/todos.interface';
 
 @Component({
   selector: 'app-create-todo-dialog',
   standalone: true,
   imports: [
+    CommonModule,
     MatFormFieldModule,
     MatLabel,
     MatError,
@@ -32,6 +35,8 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './create-todo-dialog.component.scss',
 })
 export class CreateTodoDialogComponent {
+  readonly data = inject<{ todo: Todo }>(MAT_DIALOG_DATA);
+
   public form = new FormGroup({
     id: new FormControl<number>(new Date().getTime(), {
       nonNullable: true,
