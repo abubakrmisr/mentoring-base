@@ -1,4 +1,4 @@
-.user-cards {
+.todo-cards {
   height: 300px;
   width: 334px;
   word-wrap: break-word;
@@ -32,7 +32,7 @@
   }
 }
 
-mat-card-title {
+.card-title {
   height: 85px;
   overflow-y: auto;
   font-size: 6px;
@@ -40,23 +40,23 @@ mat-card-title {
   padding-left: 10px;
 }
 
-mat-card-title p {
+.card-title p {
   margin-bottom: 0px;
 }
 
-mat-card-content {
+.card-content {
   padding-left: 10px;
 }
 
-mat-card-actions {
+.card-actions {
   flex-direction: column;
 }
 
-button {
+.mat-card-button {
   display: flex;
   width: 100%;
   margin-top: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {

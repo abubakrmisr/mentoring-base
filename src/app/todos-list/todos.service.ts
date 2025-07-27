@@ -26,13 +26,9 @@ export class TodosService {
     const existingTodo = this.todosSubject$.value.find(
       (currentElement: Todo) => currentElement.title === todo.title
     );
-
-    if (existingTodo !== undefined) {
-      return false;
-    } else {
-      this.todosSubject$.next([...this.todosSubject$.value, todo]);
-      return true;
-    }
+    return existingTodo
+      ? false
+      : (this.todosSubject$.next([...this.todosSubject$.value, todo]), true);
   }
 
   deleteTodo(id: number) {

@@ -1,0 +1,37 @@
+.btn-container {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  align-items: center;
+}
+
+.big-red-fab {
+  width: 350px;
+  height: 350px;
+  padding: 0;
+  position: relative;
+  border-radius: 50%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.big-red-fab:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+}
+
+.big-red-fab .fab-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.big-red-fab .mat-button-wrapper {
+  position: relative;
+  z-index: 2;
+}

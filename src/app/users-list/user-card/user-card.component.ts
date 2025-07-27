@@ -46,6 +46,10 @@ export class UserCardComponent {
   readonly dialog = inject(MatDialog);
   readonly snackBar = inject(MatSnackBar);
 
+  showSnack(message: string, duration: number = 3000): void {
+    this.snackBar.open(message, 'OK', { duration });
+  }
+
   openDialog(): void {
     this.dialog
       .open(EditUserDialogComponent, {
@@ -53,16 +57,9 @@ export class UserCardComponent {
       })
       .afterClosed()
       .subscribe((editResult: CreateEditUser) => {
-        if (editResult !== undefined) {
-          this.snackBar.open('USER IS EDITED', 'OK', {
-            duration: 3000,
-          });
-          this.editUser.emit(editResult);
-        } else {
-          this.snackBar.open('USER IS NOT EDITED', 'OK', {
-            duration: 3000,
-          });
-        }
+        editResult
+          ? (this.showSnack('USER IS EDITED'), this.editUser.emit(editResult))
+          : this.showSnack('USER IS NOT EDITED');
       });
   }
 
@@ -73,16 +70,10 @@ export class UserCardComponent {
       })
       .afterClosed()
       .subscribe((userId: number) => {
-        if (userId !== undefined) {
-          this.snackBar.open('USER IS DELETED', 'OK', {
-            duration: 3000,
-          });
-          this.deleteUser.emit(userId);
-        } else {
-          this.snackBar.open('USER IS NOT DELETED', 'OK', {
-            duration: 3000,
-          });
-        }
+        userId
+          ? (this.showSnack('USER IS DELETED'),
+            this.deleteUser.emit(userId))
+          : this.showSnack('USER IS NOT DELETED');
       });
   }
 }
