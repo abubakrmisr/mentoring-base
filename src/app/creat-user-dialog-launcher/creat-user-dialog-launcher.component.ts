@@ -10,6 +10,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { SnackbarService } from '../snackbar.service';
 
 @Component({
   selector: 'app-creat-user-dialog-launcher',
@@ -36,22 +37,19 @@ export class CreatUserFormComponent {
 
   readonly dialog = inject(MatDialog);
   readonly snackBar = inject(MatSnackBar);
-
-  showSnack(message: string, duration: number = 3000): void {
-    this.snackBar.open(message, 'OK', { duration });
-  }
+  private snackBarService = inject(SnackbarService);
 
   openDialog(): void {
     this.dialog
-      .open(CreateUserDialogComponent, {
-        data: { user: this.user },
-      })
+      .open(CreateUserDialogComponent)
       .afterClosed()
       .subscribe((editResult: CreateEditUser) => {
-        editResult
-          ? (this.showSnack('USER IS CREATED'),
-            this.createUser.emit(editResult))
-          : this.showSnack('USER IS NOT CREATED');
+        if (editResult) {
+          this.snackBarService.showSnack('USER IS CREATED'),
+            this.createUser.emit(editResult);
+        } else {
+          this.snackBarService.showSnack('USER IS NOT CREATED');
+        }
       });
   }
 }

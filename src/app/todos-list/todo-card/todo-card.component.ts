@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarService } from '../../snackbar.service';
 
 @Component({
   selector: 'app-todo-card',
@@ -45,10 +46,7 @@ export class TodoCardComponent {
 
   readonly dialog = inject(MatDialog);
   readonly snackBar = inject(MatSnackBar);
-
-  showSnack(message: string, duration: number = 3000): void {
-    this.snackBar.open(message, 'OK', { duration });
-  }
+  private snackBarService = inject(SnackbarService);
 
   openDialog(): void {
     this.dialog
@@ -57,9 +55,12 @@ export class TodoCardComponent {
       })
       .afterClosed()
       .subscribe((editResult: Todo) => {
-        editResult
-          ? (this.showSnack('TODO IS EDITED'), this.editTodo.emit(editResult))
-          : this.showSnack('TODO IS NOT EDITED');
+        if (editResult) {
+          this.snackBarService.showSnack('TODO IS EDITED'),
+            this.editTodo.emit(editResult);
+        } else {
+          this.snackBarService.showSnack('TODO IS NOT EDITED');
+        }
       });
   }
 
@@ -70,9 +71,12 @@ export class TodoCardComponent {
       })
       .afterClosed()
       .subscribe((todoId: number) => {
-        todoId
-          ? (this.showSnack('TODO IS DELETED'), this.deleteTodo.emit(todoId))
-          : this.showSnack('TODO IS NOT DELETED');
+        if (todoId) {
+          this.snackBarService.showSnack('TODO IS DELETED'),
+            this.deleteTodo.emit(todoId);
+        } else {
+          this.snackBarService.showSnack('TODO IS NOT DELETED');
+        }
       });
   }
 }

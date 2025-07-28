@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CreateTodoDialogComponent } from '../create-todo-dialog/create-todo-dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarService } from '../snackbar.service';
 
 @Component({
   selector: 'app-create-todo-dialog-launcher',
@@ -30,22 +31,19 @@ export class CreateTodoFormComponent {
 
   readonly dialog = inject(MatDialog);
   readonly snackBar = inject(MatSnackBar);
-
-  showSnack(message: string, duration: number = 3000): void {
-    this.snackBar.open(message, 'OK', { duration });
-  }
+  private snackBarService = inject(SnackbarService);
 
   openDialog(): void {
     this.dialog
-      .open(CreateTodoDialogComponent, {
-        data: { todo: this.todo },
-      })
+      .open(CreateTodoDialogComponent)
       .afterClosed()
       .subscribe((editResult: Todo) => {
-        editResult
-          ? (this.showSnack('TODO IS CREATED'),
-            this.createTodo.emit(editResult))
-          : this.showSnack('TODO IS NOT CREATED');
+        if (editResult) {
+          this.snackBarService.showSnack('TODO IS CREATED'),
+          this.createTodo.emit(editResult);
+        } else {
+          this.snackBarService.showSnack('TODO IS NOT CREATED');
+        }
       });
   }
 }

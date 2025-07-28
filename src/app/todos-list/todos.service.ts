@@ -1,12 +1,10 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Todo } from '../intefaces/todos.interface';
 
 @Injectable({ providedIn: 'root' })
 export class TodosService {
-  private readonly todosSubject$: BehaviorSubject<Todo[]> = new BehaviorSubject<
-    Todo[]
-  >([]);
+  private readonly todosSubject$: BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([]);
 
   readonly todos$: Observable<Todo[]> = this.todosSubject$.asObservable();
 
@@ -22,13 +20,8 @@ export class TodosService {
     );
   }
 
-  createTodo(todo: Todo): boolean {
-    const existingTodo = this.todosSubject$.value.find(
-      (currentElement: Todo) => currentElement.title === todo.title
-    );
-    return existingTodo
-      ? false
-      : (this.todosSubject$.next([...this.todosSubject$.value, todo]), true);
+  createTodo(todo: Todo): void {
+    this.todosSubject$.next([...this.todosSubject$.value, todo]);
   }
 
   deleteTodo(id: number) {

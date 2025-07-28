@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SnackbarService } from '../../snackbar.service';
 
 @Component({
   selector: 'app-user-card',
@@ -45,10 +46,7 @@ export class UserCardComponent {
 
   readonly dialog = inject(MatDialog);
   readonly snackBar = inject(MatSnackBar);
-
-  showSnack(message: string, duration: number = 3000): void {
-    this.snackBar.open(message, 'OK', { duration });
-  }
+  private snackBarService = inject(SnackbarService);
 
   openDialog(): void {
     this.dialog
@@ -57,9 +55,12 @@ export class UserCardComponent {
       })
       .afterClosed()
       .subscribe((editResult: CreateEditUser) => {
-        editResult
-          ? (this.showSnack('USER IS EDITED'), this.editUser.emit(editResult))
-          : this.showSnack('USER IS NOT EDITED');
+        if (editResult) {
+          this.snackBarService.showSnack('USER IS EDITED'),
+            this.editUser.emit(editResult);
+        } else {
+          this.snackBarService.showSnack('USER IS NOT EDITED');
+        }
       });
   }
 
@@ -70,10 +71,12 @@ export class UserCardComponent {
       })
       .afterClosed()
       .subscribe((userId: number) => {
-        userId
-          ? (this.showSnack('USER IS DELETED'),
-            this.deleteUser.emit(userId))
-          : this.showSnack('USER IS NOT DELETED');
+        if (userId) {
+          this.snackBarService.showSnack('USER IS DELETED'),
+            this.deleteUser.emit(userId);
+        } else {
+          this.snackBarService.showSnack('USER IS NOT DELETED');
+        }
       });
   }
 }
