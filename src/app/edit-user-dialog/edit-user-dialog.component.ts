@@ -46,6 +46,13 @@ export class EditUserDialogComponent {
       nonNullable: true,
       validators: [Validators.minLength(3), Validators.required],
     }),
+    
+    phone: new FormControl(this.data.user.phone, {
+      nonNullable: true,
+      validators: [Validators.minLength(3), Validators.required],
+    }),
+
+    
     companyName: new FormControl(this.data.user.company.name, {
       nonNullable: true,
       validators: [Validators.minLength(2), Validators.required],

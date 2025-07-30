@@ -1,11 +1,12 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, NgFor],
+  imports: [RouterLink, RouterLinkActive, NgFor, DatePipe],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
@@ -13,6 +14,8 @@ export class HeaderComponent {
   readonly headerItem1 = 'Главная';
   readonly headerItem2 = 'О компании';
   readonly headerItem3 = 'Каталог';
+  
+  today = new Date();
 
   isUpperCase = false;
   headerItems = [

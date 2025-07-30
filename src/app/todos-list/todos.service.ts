@@ -1,10 +1,13 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Todo } from '../intefaces/todos.interface';
+import { SnackbarService } from '../snackbar.service';
 
 @Injectable({ providedIn: 'root' })
 export class TodosService {
   private readonly todosSubject$: BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([]);
+
+  private snackBarService = inject(SnackbarService);
 
   readonly todos$: Observable<Todo[]> = this.todosSubject$.asObservable();
 
@@ -21,7 +24,15 @@ export class TodosService {
   }
 
   createTodo(todo: Todo): void {
-    this.todosSubject$.next([...this.todosSubject$.value, todo]);
+    const existingTodo = this.todosSubject$.value.find(
+      (currentElement: Todo) => currentElement.title === todo.title
+    );
+    if (existingTodo) {
+      this.snackBarService.showSnack('THIS TODO ALREADY EXISTS');
+    } else {
+      this.todosSubject$.next([...this.todosSubject$.value, todo]),
+        this.snackBarService.showSnack('TODO IS CREATED');
+    }
   }
 
   deleteTodo(id: number) {

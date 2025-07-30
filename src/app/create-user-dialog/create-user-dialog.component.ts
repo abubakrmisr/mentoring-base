@@ -54,6 +54,10 @@ export class CreateUserDialogComponent {
       nonNullable: true,
       validators: [Validators.minLength(3), Validators.required],
     }),
+    phone: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.minLength(3), Validators.required],
+    }),
     companyName: new FormControl('', {
       nonNullable: true,
       validators: [Validators.minLength(2), Validators.required],

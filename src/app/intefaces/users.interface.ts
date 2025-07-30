@@ -13,7 +13,7 @@ export interface User {
       lng: string;
     };
   };
-  phone?: string;
+  phone: string;
   website: string;
   company: {
     name: string;
@@ -27,5 +27,6 @@ export interface CreateEditUser {
   name: string;
   email: string;
   website: string;
+  phone: string;
   companyName: string;
 }

@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../intefaces/users.interface';
+import { SnackbarService } from '../snackbar.service';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
   private usersSubject$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  private snackBarService = inject(SnackbarService);
 
   users$: Observable<User[]> = this.usersSubject$.asObservable();
 
@@ -21,7 +23,15 @@ export class UsersService {
   }
 
   createUser(user: User): void {
-    this.usersSubject$.next([...this.usersSubject$.value, user]);
+    const existingUser = this.usersSubject$.value.find(
+      (currentElement: User) => currentElement.email === user.email
+    );
+    if (existingUser) {
+      this.snackBarService.showSnack('THIS USER ALREADY EXISTS');
+    } else {
+      this.usersSubject$.next([...this.usersSubject$.value, user]),
+        this.snackBarService.showSnack('USER IS CREATED');
+    }
   }
 
   deleteUser(id: number) {

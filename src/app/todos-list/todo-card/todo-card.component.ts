@@ -17,6 +17,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarService } from '../../snackbar.service';
+import { TextCutterPipe } from "../../text-cutter.pipe";
 
 @Component({
   selector: 'app-todo-card',
@@ -30,7 +31,8 @@ import { SnackbarService } from '../../snackbar.service';
     MatDividerModule,
     MatIconModule,
     MatCardModule,
-  ],
+    TextCutterPipe
+],
 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

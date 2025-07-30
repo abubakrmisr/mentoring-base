@@ -1,6 +1,9 @@
 <header>
   <div class="header">
     <div class="header-left">
+      <p>{{ today | date : "medium" }}</p>
+    </div>
+    <div class="header-left">
       <button class="header-button" (click)="toggleCase()">
         Изменить регистр
       </button>

@@ -19,6 +19,20 @@
         {{ user.website }}
       </a>
     </p>
+    
+    <p>
+      Телефон:
+      <a
+        [href]="user.phone"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="website-link"
+      >
+        {{ user.phone | cleanPhone}}
+      </a>
+    </p>
+
+    
     <mat-card-title>
       <p>{{ user.company.name }}</p>
     </mat-card-title>

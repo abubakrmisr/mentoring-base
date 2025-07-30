@@ -43,6 +43,21 @@
       Website is required
     </mat-error>
   </mat-form-field>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Phone:</mat-label>
+    <input
+      matInput
+      type="text"
+      class="form-input"
+      formControlName="phone"
+      required
+    />
+    <mat-error *ngIf="form.get('website')?.hasError('required')">
+      Phone is required
+    </mat-error>
+  </mat-form-field>
+
 
   <mat-form-field appearance="fill">
     <mat-label>Company Name:</mat-label>
