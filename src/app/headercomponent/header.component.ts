@@ -2,11 +2,13 @@ import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { Observable, timer, map } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, NgFor, DatePipe],
+  imports: [RouterLink, RouterLinkActive, NgFor, DatePipe, AsyncPipe],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
@@ -15,8 +17,9 @@ export class HeaderComponent {
   readonly headerItem2 = 'О компании';
   readonly headerItem3 = 'Каталог';
   
-  today = new Date();
-
+  today$: Observable<Date> = timer(0, 1000).pipe(
+    map(() => new Date())
+  );
   isUpperCase = false;
   headerItems = [
     'Каталог',

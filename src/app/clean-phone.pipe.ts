@@ -6,10 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CleanPhonePipe implements PipeTransform {
   transform(value: string): string {
-    if (typeof value !== 'string') return '';
-
-    const cleaned = value.replace(/[-()]/g, '').trim();
-
-    return cleaned.length > 11 ? cleaned.slice(0, 11) : cleaned;
+    const cleaned: string = value.replace(/[-()]/g, '').trim();
+    return cleaned;
   }
 }
