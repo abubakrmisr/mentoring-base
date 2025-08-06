@@ -1,4 +1,4 @@
-<mat-card class="user-cards">
+<mat-card appCardShadow class="user-cards">
   <div>
     <mat-card-header style="padding: 0">
       <div mat-card-avatar class="avatar">
@@ -50,6 +50,12 @@
           <mat-icon>delete</mat-icon>
         </button>
         <button
+          matTooltip="РЕДАКТИРОВАТЬ ПОЛЬЗОВАТЕЛЯ"
+          matTooltipPosition="above"
+          matTooltipShowDelay="500"
+          matTooltipHideDelay="1000"
+          matTooltipTrigger="mouseenter"
+          matTooltipTrigger="focus"
           mat-raised-button
           color="primary"
           class="mat-card-button"

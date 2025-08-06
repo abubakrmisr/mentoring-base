@@ -4,11 +4,19 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { Observable, timer, map } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { ChangeClrBtnDirective } from '../directives/change-clr-btn.directive';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, NgFor, DatePipe, AsyncPipe],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    NgFor,
+    DatePipe,
+    AsyncPipe,
+    ChangeClrBtnDirective,
+  ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
@@ -16,10 +24,8 @@ export class HeaderComponent {
   readonly headerItem1 = 'Главная';
   readonly headerItem2 = 'О компании';
   readonly headerItem3 = 'Каталог';
-  
-  today$: Observable<Date> = timer(0, 1000).pipe(
-    map(() => new Date())
-  );
+
+  today$: Observable<Date> = timer(0, 1000).pipe(map(() => new Date()));
   isUpperCase = false;
   headerItems = [
     'Каталог',

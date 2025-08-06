@@ -4,7 +4,7 @@
       <p>{{ today$ | async | date : "medium" }}</p>
     </div>
     <div class="header-left">
-      <button class="header-button" (click)="toggleCase()">
+      <button appChangeClrBtn class="header-button" (click)="toggleCase()">
         Изменить регистр
       </button>
 
@@ -25,6 +25,7 @@
         <div class="header-nav-item">{{ headerItem3 }}</div>
         <div style="display: flex; gap: 10px">
           <button
+            appChangeClrBtn
             routerLink="users"
             type="button"
             class="header-button"
@@ -33,6 +34,7 @@
             Пользователи
           </button>
           <button
+            appChangeClrBtn
             routerLink="todos"
             type="button"
             class="header-button"
@@ -51,7 +53,7 @@
       <div class="header-logo">
         <img src="/assets/heart 1.png" alt="логотип сердечко" />
       </div>
-      <button type="button" class="header-button-backet">
+      <button appChangeClrBtn type="button" class="header-button-backet">
         <div>
           <img src="/assets/shoppingcart.png" alt="логотип тележка" />
         </div>

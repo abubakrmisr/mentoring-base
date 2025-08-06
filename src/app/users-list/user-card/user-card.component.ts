@@ -17,7 +17,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackbarService } from '../../snackbar.service';
-import { CleanPhonePipe } from "../../clean-phone.pipe";
+import { CleanPhonePipe } from '../../clean-phone.pipe';
+import { CardShadowDirective } from '../../directives/card-shadow.directive';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-user-card',
@@ -33,8 +35,10 @@ import { CleanPhonePipe } from "../../clean-phone.pipe";
     MatDividerModule,
     MatIconModule,
     MatSnackBarModule,
-    CleanPhonePipe
-],
+    CleanPhonePipe,
+    CardShadowDirective,
+    MatTooltipModule,
+  ],
 })
 export class UserCardComponent {
   @Input()
