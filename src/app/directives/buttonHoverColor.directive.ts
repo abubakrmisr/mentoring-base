@@ -1,10 +1,10 @@
 import { Directive, HostBinding, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appChangeClrBtn]',
+  selector: '[appButtonHoverColor]',
   standalone: true,
 })
-export class ChangeClrBtnDirective {
+export class ButtonHoverColorDirective {
   private color: string = '#4b565e';
   private readonly defaultColor: string = '#4b565e';
   private readonly hoverColor: string = '#f0ba4e';
