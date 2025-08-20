@@ -1,0 +1,18 @@
+.dialog-conteiner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+
+.auth-dialog-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.button {
+  width: 100px;
+}

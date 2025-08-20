@@ -1,10 +1,10 @@
 <header>
   <div class="header">
-    <div class="header-left">
-      <p>{{ today$ | async | date : "medium" }}</p>
+    <div>
+      <p class="header-time">{{ today$ | async | date : "medium" }}</p>
     </div>
     <div class="header-left">
-      <button appChangeClrBtn class="header-button" (click)="toggleCase()">
+      <button appButtonHoverColor class="header-button" (click)="toggleCase()">
         Изменить регистр
       </button>
 
@@ -25,7 +25,7 @@
         <div class="header-nav-item">{{ headerItem3 }}</div>
         <div style="display: flex; gap: 10px">
           <button
-            appChangeClrBtn
+            appButtonHoverColor
             routerLink="users"
             type="button"
             class="header-button"
@@ -34,13 +34,42 @@
             Пользователи
           </button>
           <button
-            appChangeClrBtn
+            appButtonHoverColor
             routerLink="todos"
             type="button"
             class="header-button"
             style="padding: 10px"
           >
             Задачи
+          </button>
+          <button
+            appButtonHoverColor
+            routerLink="/admin"
+            type="button"
+            class="header-button"
+            style="padding: 10px"
+          >
+            Админка
+          </button>
+          <button
+            *ngIf="(authService.user$ | async) === null"
+            (click)="openDialog()"
+            appButtonHoverColor
+            type="button"
+            class="header-button"
+            style="padding: 10px"
+          >
+            Войти
+          </button>
+          <button
+            *ngIf="(authService.user$ | async) !== null"
+            (click)="logOut()"
+            appButtonHoverColor
+            type="button"
+            class="header-button"
+            style="padding: 10px"
+          >
+            Выйти
           </button>
         </div>
       </nav>
