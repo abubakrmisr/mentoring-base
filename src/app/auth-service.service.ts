@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 export interface IUser {
   name: string;
   email: string;
-  isAdmin: boolean | null;
+  isAdmin: boolean;
 }
 
 @Injectable({
@@ -17,7 +17,7 @@ export class AuthService {
   private user: IUser = {
     name: 'Василий',
     email: 'tustin78@mail.ru',
-    isAdmin: null,
+    isAdmin: false,
   };
 
   loginAsAdmin() {

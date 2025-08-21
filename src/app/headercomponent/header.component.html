@@ -64,6 +64,7 @@
           <button
             *ngIf="(authService.user$ | async) !== null"
             (click)="logOut()"
+            routerLink="/"
             appButtonHoverColor
             type="button"
             class="header-button"
