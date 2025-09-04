@@ -6,7 +6,6 @@ import { User, CreateEditUser } from '../intefaces/users.interface';
 import { CreatUserFormComponent } from '../creat-user-dialog-launcher/creat-user-dialog-launcher.component';
 import { select, Store } from '@ngrx/store';
 import { UsersActions } from './store/users.actions';
-import { mapCreateEditUserToUser } from '../mappers/user.mapper';
 import { selectUsers } from './store/users.selectors';
 
 @Component({
@@ -49,10 +48,20 @@ export class UsersListComponent {
     this.store.dispatch(UsersActions.delete({ id }));
   }
 
-  public editUser(user: CreateEditUser) {
-    const mappedUser = mapCreateEditUserToUser(user);
-    // Из-за несовпадения свойств интерфейсов добавлен метод маппинга как лучшая практика решения данной проблемы.
-    // PS: Комментарий будет удалён после ревью.
-    this.store.dispatch(UsersActions.edit({ user: mappedUser }));
+  public editUser(formData: CreateEditUser) {
+    this.store.dispatch(
+      UsersActions.edit({
+        user: {
+          id: formData.id,
+          name: formData.name,
+          email: formData.email,
+          website: formData.website,
+          phone: formData.phone,
+          company: {
+            name: formData.companyName,
+          },
+        },
+      })
+    );
   }
 }

@@ -2,10 +2,11 @@ import { AsyncPipe, NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TodosApiService } from './todos-api.service';
 import { TodoCardComponent } from './todo-card/todo-card.component';
-import { TodosService } from './todos.service';
 import { Todo } from '../intefaces/todos.interface';
-import { Observable } from 'rxjs';
 import { CreateTodoFormComponent } from '../create-todo-dialog-launcher/create-todo-dialog-launcher.component';
+import { Store } from '@ngrx/store';
+import { TodosActions } from '../users-list/store/todos.actions';
+import { selectTodos } from '../users-list/store/todos.selector';
 
 @Component({
   selector: 'app-todos-list',
@@ -17,32 +18,33 @@ import { CreateTodoFormComponent } from '../create-todo-dialog-launcher/create-t
 })
 export class TodosListComponent {
   readonly todosApiService = inject(TodosApiService);
-  private readonly todosService = inject(TodosService);
-
-  readonly todos$: Observable<Todo[]> = this.todosService.todos$;
+  private readonly store = inject(Store);
+  public readonly todos$ = this.store.select(selectTodos);
 
   constructor() {
     this.todosApiService.getTodos().subscribe((response: Todo[]) => {
-      this.todosService.setTodos(response);
+      this.store.dispatch(TodosActions.set({ todos: response }));
     });
   }
 
   public createTodo(FormData: Todo) {
-    this.todosService.createTodo({
-      id: new Date().getTime(),
-      title: FormData.title,
-      userId: FormData.userId,
-      completed: FormData.completed,
-    });
+    this.store.dispatch(
+      TodosActions.create({
+        todo: {
+        id: new Date().getTime(),
+        title: FormData.title,
+        userId: FormData.userId,
+        completed: FormData.completed
+        }
+      })
+    );
   }
 
   deleteTodo(id: number) {
-    this.todosService.deleteTodo(id);
+    this.store.dispatch(TodosActions.delete({ id }));
   }
 
   public editTodo(todo: Todo) {
-    this.todosService.editTodo({
-      ...todo,
-    });
+    this.store.dispatch(TodosActions.edit({ todo }));
   }
 }

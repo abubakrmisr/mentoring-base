@@ -5,8 +5,9 @@ import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideStore } from '@ngrx/store';
-import { userReducer } from './users-list/store/users.reducer';
+import { userReducer } from './users-list/store/user.reducer';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { todoReducer } from './users-list/store/todo.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,8 +15,9 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideAnimationsAsync(),
     provideStore({
-      users: userReducer
+      users: userReducer,
+      todos: todoReducer,
     }),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
-]
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+  ],
 };
