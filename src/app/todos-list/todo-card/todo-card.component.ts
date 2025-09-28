@@ -6,7 +6,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { Todo } from '../../intefaces/todos.interface';
+import { Todo } from '../../interfaces/todos.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { EditTodoDialogComponent } from '../../edit-todo-dialog/edit-todo-dialog.component';
 import { DeleteTodoDialogComponent } from '../../delete-todo-dialog/delete-todo-dialog.component';

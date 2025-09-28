@@ -10,7 +10,7 @@ import { MAT_DIALOG_DATA, MatDialogClose } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { User } from '../intefaces/users.interface';
+import { User } from '../interfaces/users.interface';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({

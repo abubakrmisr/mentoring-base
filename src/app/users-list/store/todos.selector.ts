@@ -1,5 +1,5 @@
 import { state } from "@angular/animations";
-import { Todo } from "../../intefaces/todos.interface";
+import { Todo } from "../../interfaces/todos.interface";
 import { createSelector } from "@ngrx/store";
 
 interface TodoState {

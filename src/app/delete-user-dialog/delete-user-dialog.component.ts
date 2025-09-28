@@ -8,7 +8,7 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { User } from '../intefaces/users.interface';
+import { User } from '../interfaces/users.interface';
 
 @Component({
   selector: 'app-delete-user-dialog',

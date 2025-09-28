@@ -15,7 +15,7 @@ import {
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { Todo } from '../intefaces/todos.interface';
+import { Todo } from '../interfaces/todos.interface';
 
 @Component({
   selector: 'app-create-todo-dialog',

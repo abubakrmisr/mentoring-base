@@ -7,7 +7,7 @@ import {
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import { Todo } from '../intefaces/todos.interface';
+import { Todo } from '../interfaces/todos.interface';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({

@@ -2,7 +2,7 @@ import { AsyncPipe, NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { UsersApiService } from './users-api.service';
 import { UserCardComponent } from './user-card/user-card.component';
-import { User, CreateEditUser } from '../intefaces/users.interface';
+import { User, CreateEditUser } from '../interfaces/users.interface';
 import { CreatUserFormComponent } from '../creat-user-dialog-launcher/creat-user-dialog-launcher.component';
 import { select, Store } from '@ngrx/store';
 import { UsersActions } from './store/users.actions';

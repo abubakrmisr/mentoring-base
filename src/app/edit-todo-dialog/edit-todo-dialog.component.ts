@@ -10,7 +10,7 @@ import { MAT_DIALOG_DATA, MatDialogClose } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { Todo } from '../intefaces/todos.interface';
+import { Todo } from '../interfaces/todos.interface';
 
 @Component({
   selector: 'app-edit-todo-dialog',

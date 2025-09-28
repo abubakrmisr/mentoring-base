@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogClose } from '@angular/material/dialog';
-import { User } from '../intefaces/users.interface';
+import { User } from '../interfaces/users.interface';
 import { CommonModule } from '@angular/common';
 import {
   FormGroup,

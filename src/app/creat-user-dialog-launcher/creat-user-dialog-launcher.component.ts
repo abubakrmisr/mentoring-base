@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { CreateEditUser, User } from '../intefaces/users.interface';
+import { CreateEditUser, User } from '../interfaces/users.interface';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialog } from '@angular/material/dialog';

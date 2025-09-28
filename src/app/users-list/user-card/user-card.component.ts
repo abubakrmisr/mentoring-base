@@ -6,7 +6,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { CreateEditUser, User } from '../../intefaces/users.interface';
+import { CreateEditUser, User } from '../../interfaces/users.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { EditUserDialogComponent } from '../../edit-user-dialog/edit-user-dialog.component';
 import { DeleteUserDialogComponent } from '../../delete-user-dialog/delete-user-dialog.component';

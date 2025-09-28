@@ -1,30 +1,33 @@
 import { createReducer, on } from '@ngrx/store';
-import { state } from '@angular/animations';
-import { Todo } from '../../intefaces/todos.interface';
+import { Todo } from '../../interfaces/todos.interface';
 import { TodosActions } from './todos.actions';
 
-const initialState: { todos: Todo[] } = {
+export interface TodosState {
+  todos: Todo[];
+}
+
+const initialState: TodosState= {
   todos: [],
 };
 
 export const todoReducer = createReducer(
   initialState,
-  on(TodosActions.set, (state: { todos: Todo[] }, { todos }) => ({
+  on(TodosActions.set, (state, { todos }) => ({
     ...state,
-    todos: todos,
+    todos,
   })),
 
-  on(TodosActions.edit, (state: { todos: Todo[] }, { todo }) => ({
+  on(TodosActions.edit, (state, { todo }) => ({
     ...state,
     todos: state.todos.map((t) => (t.id === todo.id ? todo : t)),
   })),
 
-  on(TodosActions.create, (state: { todos: Todo[] }, { todo }) => ({
+  on(TodosActions.create, (state, { todo }) => ({
     ...state,
     todos: [...state.todos, todo],
   })),
 
-  on(TodosActions.delete, (state: { todos: Todo[] }, { id }: { id: number }) => ({
+  on(TodosActions.delete, (state, { id }) => ({
       ...state,
       todos: state.todos.filter((todo) => todo.id !== id),
     })
